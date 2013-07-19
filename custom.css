@@ -1,0 +1,147 @@
+.x-tab img.alarms,
+.x-button img.x-icon-mask.alarms {
+  -webkit-mask-image:url('resources/clock-icon.png');
+}
+div.list-title {
+    font-size: 1.4em;
+    float: left;
+}
+div.list-info {
+    margin-left: 2.5em;    
+}
+div.list-flag {
+    vertical-align:middle;
+    float: left;
+    width: 2.5em;
+}
+span.header {
+    font-size: 1.4em;
+}
+span.ok {
+    color: green;
+}
+span.error {
+    color: red;
+}
+span.warning {
+    color: orange;
+}
+span.normal {
+    font-size: 0.7em;
+}
+span.list-details {
+    font-size: 0.7em;
+}
+div.list-details {
+    font-size: 0.7em;
+    text-align: right;
+    float: right;
+}
+table.vblock-info {
+    border: 0px;
+}
+table.vblock-info td {
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+    
+table.vapp-details {
+    width: 100%;
+    padding: 10px;
+}
+ 
+div.traffic-lights {
+    vertical-align: middle;
+    float: left;
+    width: 75px;
+}
+div.vapp-info {
+    margin-left: 75px;
+}
+.alignleft {
+	float: left;
+}
+.alignright {
+	float: right;
+}
+div.status-headers {
+    font-size: 1.2em;
+}
+div.title-summary-div {
+    font-size: 0.5em;
+}
+span.footer-text {
+    font-size: 0.7em;
+}
+img.footer-image {
+    height: 20px; 
+    vertical-align: middle;
+}
+div.center-align {
+    align: center;
+    text-align: center;
+}
+div.shadowed {
+    color: white;
+    text-shadow:1px 1px 0em black;
+}
+
+div.list-critical {
+    background-color: "#ff0000" !important;
+}
+div.list-degraded {
+    background-color: "#FFA500" !important;
+}
+
+
+#progress-background-line {
+    align: left;
+	position: relative;
+	height: 80px;
+	width: 298px;
+    opacity: 0;
+	background: url(resources/images/line.png) 0px 0px no-repeat;
+	-webkit-animation-duration: 3s;
+	-webkit-animation-name: stretch;
+	-webkit-animation-iteration-count: infinite;
+}
+
+#progress-circle {
+    margin: 0 auto;
+	position: relative;
+	top: 0;
+	width: 100px;
+	height: 80px;
+	background: url(resources/images/Circle.png) right 0px no-repeat;
+	-webkit-animation-duration: 3s;
+	-webkit-animation-name: slidein;
+	-webkit-animation-iteration-count: infinite;
+}
+	
+@-webkit-keyframes slidein {
+  0% {
+    width: 53px;
+	opacity: 0;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    width: 345px;
+    opacity: 0;
+  }  
+}
+@-webkit-keyframes stretch {
+  0% {
+    width: 0px;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+   width: 298px;
+   opacity: 0;
+  }  
+}

@@ -1,0 +1,26 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "VblockModel"
+    },
+    "designerId": "fafb3f6d-d514-4483-86cc-484a9c74bb6c",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "text"
+            },
+            "designerId": "429a8b3e-b170-4af0-882b-3bf33a8fb109"
+        }
+    ]
+}

@@ -1,0 +1,183 @@
+{
+    "type": "Ext.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "id": "main-container",
+        "designer|userClassName": "MainContainer",
+        "designer|initialView": true,
+        "layout": "card"
+    },
+    "designerId": "39000966-fd31-42ac-b30c-4b0dff611f7e",
+    "cn": [
+        {
+            "type": "Ext.Sheet",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "hidden": true,
+                "id": "vblock-nav-sheet",
+                "left": 0,
+                "right": 100,
+                "width": null,
+                "hideOnMaskTap": true,
+                "layout": "vbox",
+                "enter": "left",
+                "exit": "left",
+                "stretchY": true
+            },
+            "designerId": "82edddd4-7579-4f0b-b7c2-214f715e6ca0",
+            "cn": [
+                {
+                    "type": "Ext.dataview.NestedList",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": 1,
+                        "store": "MyJsonTreeStore"
+                    },
+                    "designerId": "caa540c9-2ceb-4932-b819-39e0cd740447"
+                },
+                {
+                    "type": "Ext.dataview.List",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": 1
+                    },
+                    "designerId": "35061fea-d715-4d3f-89cd-27df7c236699",
+                    "cn": [
+                        {
+                            "type": "Ext.XTemplate",
+                            "reference": {
+                                "name": "itemTpl",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "implHandler": [
+                                    "<div>List Item {string}</div>"
+                                ],
+                                "designer|displayName": "itemTpl"
+                            },
+                            "designerId": "d94ecf98-917b-40a3-a0ed-41d39cf7a318"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "portrait",
+                "layout": "vbox"
+            },
+            "designerId": "557251ae-0d88-46ea-886b-aa08ba9f67e3",
+            "cn": [
+                {
+                    "type": "Ext.dataview.NestedList",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": 1,
+                        "id": "vblock-list",
+                        "store": "VblockTreeStore",
+                        "title": "VBlock Nav"
+                    },
+                    "designerId": "b1886dd0-87ca-4aa1-b474-0acb733049bc",
+                    "cn": [
+                        {
+                            "type": "Ext.Toolbar",
+                            "reference": {
+                                "name": "toolbar",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "container|align": null,
+                                "container|pack": "end",
+                                "itemId": "header-bar",
+                                "ui": null
+                            },
+                            "designerId": "69bd03d3-39d1-4e13-9cb9-557c6c09e372",
+                            "cn": [
+                                {
+                                    "type": "Ext.Spacer",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "designerId": "b54b5a14-df9e-4e9c-9280-058920fd0dff"
+                                },
+                                {
+                                    "type": "Ext.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "itemId": "show-nav-sheet-button",
+                                        "ui": "plain",
+                                        "width": 45,
+                                        "iconCls": "more",
+                                        "text": null
+                                    },
+                                    "designerId": "9c8a8072-97d7-4439-8daf-51e588f9c127"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": 1,
+                        "itemId": "spacetree-container",
+                        "layout": "vbox"
+                    },
+                    "designerId": "0b478dd5-f968-46a6-a9a3-394ee14477f7"
+                }
+            ]
+        },
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "landscape",
+                "layout": "hbox"
+            },
+            "designerId": "215121e4-8185-4c32-9109-5c8adce95b25"
+        }
+    ]
+}

@@ -1,0 +1,42 @@
+{
+    "type": "Ext.data.TreeStore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "model": "VblockModel",
+        "storeId": "MyJsonTreeStore",
+        "designer|userClassName": "MyJsonTreeStore",
+        "defaultRootProperty": "items",
+        "root": [
+            "{\r",
+            "        items: [\r",
+            "            {\r",
+            "                text: 'Drinks',\r",
+            "                items: [\r",
+            "                    {\r",
+            "                        text: 'Water',\r",
+            "                        items: [\r",
+            "                            { text: 'Still', leaf: true },\r",
+            "                            { text: 'Sparkling', leaf: true }\r",
+            "                        ]\r",
+            "                    },\r",
+            "                    { text: 'Soda', leaf: true }\r",
+            "                ]\r",
+            "            },\r",
+            "            {\r",
+            "                text: 'Snacks',\r",
+            "                items: [\r",
+            "                    { text: 'Nuts', leaf: true },\r",
+            "                    { text: 'Pretzels', leaf: true },\r",
+            "                    { text: 'Wasabi Peas', leaf: true  }\r",
+            "                ]\r",
+            "            }\r",
+            "        ]\r",
+            "}"
+        ]
+    },
+    "designerId": "9bae67c8-7e24-4a33-9a6d-77a2cddafebe"
+}

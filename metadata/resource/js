@@ -1,0 +1,13 @@
+{
+    "type": "jsresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "js",
+        "url": "js/jit.js"
+    },
+    "designerId": "9916fc56-8f7d-4e45-b29a-e1957c44b97f"
+}

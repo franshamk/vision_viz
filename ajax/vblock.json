@@ -1,0 +1,1188 @@
+{
+    "leaf": false,
+    "text": "AllVblocks",
+	"id": "root",
+    "expanded": true,
+    "type": "root",
+    "icon": "resources/treeicons/root.png",
+    "properties": [
+        {
+            "text": "property1",
+            "value": "value1"
+        },
+        {
+            "text": "property2",
+            "value": "value2"
+        },
+        {
+            "text": "property3",
+            "value": "value3"
+        },
+        {
+            "text": "property4",
+            "value": "value4"
+        }
+    ],
+    "children": [
+        {
+            "leaf": false,
+            "text": "vblock1",
+            "type": "Vblock",
+            "icon": "resources/icons/vblock.png",
+            "status": "critical",
+            "children": [
+                {
+                    "leaf": false,
+                    "text": "network domain",
+                    "type": "domain",
+                    "icon": "resources/icons/domain.png",
+                    "properties": [
+                        {
+                            "text": "property1",
+                            "value": "value1"
+                        },
+                        {
+                            "text": "property2",
+                            "value": "value2"
+                        },
+                        {
+                            "text": "property3",
+                            "value": "value3"
+                        },
+                        {
+                            "text": "property4",
+                            "value": "value4"
+                        }
+                    ],
+                    "children": []
+                },
+                {
+                    "leaf": false,
+                    "text": "storage domain",
+                    "type": "domain",
+                    "icon": "resources/icons/domain.png",
+                    "properties": [
+                        {
+                            "text": "property1",
+                            "value": "value1"
+                        },
+                        {
+                            "text": "property2",
+                            "value": "value2"
+                        },
+                        {
+                            "text": "property3",
+                            "value": "value3"
+                        },
+                        {
+                            "text": "property4",
+                            "value": "value4"
+                        }
+                    ],
+                    "children": []
+                },
+                {
+                    "leaf": false,
+                    "text": "compute domain",
+                    "type": "domain",
+                    "icon": "resources/icons/domain.png",
+                    "status": "critical",
+                    "properties": [
+                        {
+                            "text": "property1",
+                            "value": "value1"
+                        },
+                        {
+                            "text": "property2",
+                            "value": "value2"
+                        },
+                        {
+                            "text": "property3",
+                            "value": "value3"
+                        },
+                        {
+                            "text": "property4",
+                            "value": "value4"
+                        }
+                    ],
+                    "children": [
+                        {
+                            "leaf": false,
+                            "text": "CiscoUCS",
+                            "type": "ucs",
+                            "icon": "resources/icons/domain.png",
+                            "status": "critical",
+                            "properties": [
+                                {
+                                    "text": "property1",
+                                    "value": "value1"
+                                },
+                                {
+                                    "text": "property2",
+                                    "value": "value2"
+                                },
+                                {
+                                    "text": "property3",
+                                    "value": "value3"
+                                },
+                                {
+                                    "text": "property4",
+                                    "value": "value4"
+                                }
+                            ],
+                            "children": [
+                                {
+                                    "leaf": false,
+                                    "text": "Chassis1",
+                                    "type": "chassis",
+                                    "icon": "resources/icons/domain.png",
+                                    "status": "critical",
+                                    "properties": [
+                                        {
+                                            "text": "property1",
+                                            "value": "value1"
+                                        },
+                                        {
+                                            "text": "property2",
+                                            "value": "value2"
+                                        },
+                                        {
+                                            "text": "property3",
+                                            "value": "value3"
+                                        },
+                                        {
+                                            "text": "property4",
+                                            "value": "value4"
+                                        }
+                                    ],
+                                    "children": [
+                                        {
+                                            "leaf": false,
+                                            "text": "blade1.internal.superna.net",
+                                            "type": "blade",
+                                            "icon": "resources/icons/domain.png",
+                                            "status": "critical",
+                                            "properties": [
+                                                {
+                                                    "text": "property1",
+                                                    "value": "value1"
+                                                },
+                                                {
+                                                    "text": "property2",
+                                                    "value": "value2"
+                                                },
+                                                {
+                                                    "text": "property3",
+                                                    "value": "value3"
+                                                },
+                                                {
+                                                    "text": "property4",
+                                                    "value": "value4"
+                                                }
+                                            ],
+                                            "children": [
+                                                {
+                                                    "leaf": true,
+                                                    "text": "vm1.internal.superna.net",
+                                                    "type": "vm",
+                                                    "icon": "resources/icons/vm.png",
+                                                    "properties": [
+                                                        {
+                                                            "text": "property1",
+                                                            "value": "value1"
+                                                        },
+                                                        {
+                                                            "text": "property2",
+                                                            "value": "value2"
+                                                        },
+                                                        {
+                                                            "text": "property3",
+                                                            "value": "value3"
+                                                        },
+                                                        {
+                                                            "text": "property4",
+                                                            "value": "value4"
+                                                        }
+                                                    ],
+                                                    "status": "critical"
+                                                },
+                                                {
+                                                    "leaf": true,
+                                                    "text": "vm2.internal.superna.net",
+                                                    "type": "vm",
+                                                    "properties": [
+                                                        {
+                                                            "text": "property1",
+                                                            "value": "value1"
+                                                        },
+                                                        {
+                                                            "text": "property2",
+                                                            "value": "value2"
+                                                        },
+                                                        {
+                                                            "text": "property3",
+                                                            "value": "value3"
+                                                        },
+                                                        {
+                                                            "text": "property4",
+                                                            "value": "value4"
+                                                        }
+                                                    ],
+                                                    "icon": "resources/icons/vm.png"
+                                                },
+                                                {
+                                                    "leaf": true,
+                                                    "text": "vm3.internal.superna.net",
+                                                    "type": "vm",
+                                                    "properties": [
+                                                        {
+                                                            "text": "property1",
+                                                            "value": "value1"
+                                                        },
+                                                        {
+                                                            "text": "property2",
+                                                            "value": "value2"
+                                                        },
+                                                        {
+                                                            "text": "property3",
+                                                            "value": "value3"
+                                                        },
+                                                        {
+                                                            "text": "property4",
+                                                            "value": "value4"
+                                                        }
+                                                    ],
+                                                    "icon": "resources/icons/vm.png"
+                                                },
+                                                {
+                                                    "leaf": true,
+                                                    "text": "vm4.internal.superna.net",
+                                                    "type": "vm",
+                                                    "properties": [
+                                                        {
+                                                            "text": "property1",
+                                                            "value": "value1"
+                                                        },
+                                                        {
+                                                            "text": "property2",
+                                                            "value": "value2"
+                                                        },
+                                                        {
+                                                            "text": "property3",
+                                                            "value": "value3"
+                                                        },
+                                                        {
+                                                            "text": "property4",
+                                                            "value": "value4"
+                                                        }
+                                                    ],
+                                                    "icon": "resources/icons/vm.png"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "leaf": false,
+                                            "text": "blade2.internal.superna.net",
+                                            "type": "blade",
+                                            "icon": "resources/icons/domain.png",
+                                            "properties": [
+                                                {
+                                                    "text": "property1",
+                                                    "value": "value1"
+                                                },
+                                                {
+                                                    "text": "property2",
+                                                    "value": "value2"
+                                                },
+                                                {
+                                                    "text": "property3",
+                                                    "value": "value3"
+                                                },
+                                                {
+                                                    "text": "property4",
+                                                    "value": "value4"
+                                                }
+                                            ],
+                                            "status": "critical",
+                                            "children": [
+                                                {
+                                                    "leaf": true,
+                                                    "text": "vm5.internal.superna.net",
+                                                    "type": "vm",
+                                                    "properties": [
+                                                        {
+                                                            "text": "property1",
+                                                            "value": "value1"
+                                                        },
+                                                        {
+                                                            "text": "property2",
+                                                            "value": "value2"
+                                                        },
+                                                        {
+                                                            "text": "property3",
+                                                            "value": "value3"
+                                                        },
+                                                        {
+                                                            "text": "property4",
+                                                            "value": "value4"
+                                                        }
+                                                    ],
+                                                    "icon": "resources/icons/vm.png",
+                                                    "status": "critical"
+                                                },
+                                                {
+                                                    "leaf": true,
+                                                    "text": "vm6.internal.superna.net",
+                                                    "type": "vm",
+                                                    "properties": [
+                                                        {
+                                                            "text": "property1",
+                                                            "value": "value1"
+                                                        },
+                                                        {
+                                                            "text": "property2",
+                                                            "value": "value2"
+                                                        },
+                                                        {
+                                                            "text": "property3",
+                                                            "value": "value3"
+                                                        },
+                                                        {
+                                                            "text": "property4",
+                                                            "value": "value4"
+                                                        }
+                                                    ],
+                                                    "icon": "resources/icons/vm.png"
+                                                },
+                                                {
+                                                    "leaf": true,
+                                                    "text": "vm7.internal.superna.net",
+                                                    "type": "vm",
+                                                    "properties": [
+                                                        {
+                                                            "text": "property1",
+                                                            "value": "value1"
+                                                        },
+                                                        {
+                                                            "text": "property2",
+                                                            "value": "value2"
+                                                        },
+                                                        {
+                                                            "text": "property3",
+                                                            "value": "value3"
+                                                        },
+                                                        {
+                                                            "text": "property4",
+                                                            "value": "value4"
+                                                        }
+                                                    ],
+                                                    "icon": "resources/icons/vm.png"
+                                                },
+                                                {
+                                                    "leaf": true,
+                                                    "text": "vm8.internal.superna.net",
+                                                    "type": "vm",
+                                                    "properties": [
+                                                        {
+                                                            "text": "property1",
+                                                            "value": "value1"
+                                                        },
+                                                        {
+                                                            "text": "property2",
+                                                            "value": "value2"
+                                                        },
+                                                        {
+                                                            "text": "property3",
+                                                            "value": "value3"
+                                                        },
+                                                        {
+                                                            "text": "property4",
+                                                            "value": "value4"
+                                                        }
+                                                    ],
+                                                    "icon": "resources/icons/vm.png"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "leaf": false,
+                                            "text": "blade3.internal.superna.net",
+                                            "type": "blade",
+                                            "icon": "resources/icons/domain.png",
+                                            "status": "critical",
+                                            "properties": [
+                                                {
+                                                    "text": "property1",
+                                                    "value": "value1"
+                                                },
+                                                {
+                                                    "text": "property2",
+                                                    "value": "value2"
+                                                },
+                                                {
+                                                    "text": "property3",
+                                                    "value": "value3"
+                                                },
+                                                {
+                                                    "text": "property4",
+                                                    "value": "value4"
+                                                }
+                                            ],
+                                            "children": [
+                                                {
+                                                    "leaf": true,
+                                                    "text": "vm9.internal.superna.net",
+                                                    "type": "vm",
+                                                    "properties": [
+                                                        {
+                                                            "text": "property1",
+                                                            "value": "value1"
+                                                        },
+                                                        {
+                                                            "text": "property2",
+                                                            "value": "value2"
+                                                        },
+                                                        {
+                                                            "text": "property3",
+                                                            "value": "value3"
+                                                        },
+                                                        {
+                                                            "text": "property4",
+                                                            "value": "value4"
+                                                        }
+                                                    ],
+                                                    "icon": "resources/icons/vm.png",
+                                                    "status": "critical"
+                                                },
+                                                {
+                                                    "leaf": true,
+                                                    "text": "vm10.internal.superna.net",
+                                                    "type": "vm",
+                                                    "properties": [
+                                                        {
+                                                            "text": "property1",
+                                                            "value": "value1"
+                                                        },
+                                                        {
+                                                            "text": "property2",
+                                                            "value": "value2"
+                                                        },
+                                                        {
+                                                            "text": "property3",
+                                                            "value": "value3"
+                                                        },
+                                                        {
+                                                            "text": "property4",
+                                                            "value": "value4"
+                                                        }
+                                                    ],
+                                                    "icon": "resources/icons/vm.png"
+                                                },
+                                                {
+                                                    "leaf": true,
+                                                    "text": "vm11.internal.superna.net",
+                                                    "type": "vm",
+                                                    "properties": [
+                                                        {
+                                                            "text": "property1",
+                                                            "value": "value1"
+                                                        },
+                                                        {
+                                                            "text": "property2",
+                                                            "value": "value2"
+                                                        },
+                                                        {
+                                                            "text": "property3",
+                                                            "value": "value3"
+                                                        },
+                                                        {
+                                                            "text": "property4",
+                                                            "value": "value4"
+                                                        }
+                                                    ],
+                                                    "icon": "resources/icons/vm.png"
+                                                },
+                                                {
+                                                    "leaf": true,
+                                                    "text": "vm12.internal.superna.net",
+                                                    "type": "vm",
+                                                    "properties": [
+                                                        {
+                                                            "text": "property1",
+                                                            "value": "value1"
+                                                        },
+                                                        {
+                                                            "text": "property2",
+                                                            "value": "value2"
+                                                        },
+                                                        {
+                                                            "text": "property3",
+                                                            "value": "value3"
+                                                        },
+                                                        {
+                                                            "text": "property4",
+                                                            "value": "value4"
+                                                        }
+                                                    ],
+                                                    "icon": "resources/icons/vm.png"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "leaf": false,
+                                            "text": "blade4.internal.superna.net",
+                                            "type": "blade",
+                                            "icon": "resources/icons/domain.png",
+                                            "status": "critical",
+                                            "properties": [
+                                                {
+                                                    "text": "property1",
+                                                    "value": "value1"
+                                                },
+                                                {
+                                                    "text": "property2",
+                                                    "value": "value2"
+                                                },
+                                                {
+                                                    "text": "property3",
+                                                    "value": "value3"
+                                                },
+                                                {
+                                                    "text": "property4",
+                                                    "value": "value4"
+                                                }
+                                            ],
+                                            "children": [
+                                                {
+                                                    "leaf": true,
+                                                    "text": "vm13.internal.superna.net",
+                                                    "type": "vm",
+                                                    "properties": [
+                                                        {
+                                                            "text": "property1",
+                                                            "value": "value1"
+                                                        },
+                                                        {
+                                                            "text": "property2",
+                                                            "value": "value2"
+                                                        },
+                                                        {
+                                                            "text": "property3",
+                                                            "value": "value3"
+                                                        },
+                                                        {
+                                                            "text": "property4",
+                                                            "value": "value4"
+                                                        }
+                                                    ],
+                                                    "icon": "resources/icons/vm.png",
+                                                    "status": "critical"
+                                                },
+                                                {
+                                                    "leaf": true,
+                                                    "text": "vm14.internal.superna.net",
+                                                    "type": "vm",
+                                                    "properties": [
+                                                        {
+                                                            "text": "property1",
+                                                            "value": "value1"
+                                                        },
+                                                        {
+                                                            "text": "property2",
+                                                            "value": "value2"
+                                                        },
+                                                        {
+                                                            "text": "property3",
+                                                            "value": "value3"
+                                                        },
+                                                        {
+                                                            "text": "property4",
+                                                            "value": "value4"
+                                                        }
+                                                    ],
+                                                    "icon": "resources/icons/vm.png"
+                                                },
+                                                {
+                                                    "leaf": true,
+                                                    "text": "vm16.internal.superna.net",
+                                                    "type": "vm",
+                                                    "properties": [
+                                                        {
+                                                            "text": "property1",
+                                                            "value": "value1"
+                                                        },
+                                                        {
+                                                            "text": "property2",
+                                                            "value": "value2"
+                                                        },
+                                                        {
+                                                            "text": "property3",
+                                                            "value": "value3"
+                                                        },
+                                                        {
+                                                            "text": "property4",
+                                                            "value": "value4"
+                                                        }
+                                                    ],
+                                                    "icon": "resources/icons/vm.png"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "leaf": false,
+                                    "text": "Chassis2",
+                                    "type": "chassis",
+                                    "icon": "resources/icons/domain.png",
+                                    "status": "critical",
+                                    "properties": [
+                                        {
+                                            "text": "property1",
+                                            "value": "value1"
+                                        },
+                                        {
+                                            "text": "property2",
+                                            "value": "value2"
+                                        },
+                                        {
+                                            "text": "property3",
+                                            "value": "value3"
+                                        },
+                                        {
+                                            "text": "property4",
+                                            "value": "value4"
+                                        }
+                                    ],
+                                    "children": [
+                                        {
+                                            "leaf": false,
+                                            "text": "blade5.internal.superna.net",
+                                            "type": "blade",
+                                            "icon": "resources/icons/domain.png",
+                                            "status": "critical",
+                                            "properties": [
+                                                {
+                                                    "text": "property1",
+                                                    "value": "value1"
+                                                },
+                                                {
+                                                    "text": "property2",
+                                                    "value": "value2"
+                                                },
+                                                {
+                                                    "text": "property3",
+                                                    "value": "value3"
+                                                },
+                                                {
+                                                    "text": "property4",
+                                                    "value": "value4"
+                                                }
+                                            ],
+                                            "children": [
+                                                {
+                                                    "leaf": true,
+                                                    "text": "vm17.internal.superna.net",
+                                                    "type": "vm",
+                                                    "properties": [
+                                                        {
+                                                            "text": "property1",
+                                                            "value": "value1"
+                                                        },
+                                                        {
+                                                            "text": "property2",
+                                                            "value": "value2"
+                                                        },
+                                                        {
+                                                            "text": "property3",
+                                                            "value": "value3"
+                                                        },
+                                                        {
+                                                            "text": "property4",
+                                                            "value": "value4"
+                                                        }
+                                                    ],
+                                                    "icon": "resources/icons/vm.png",
+                                                    "status": "critical"
+                                                },
+                                                {
+                                                    "leaf": true,
+                                                    "text": "vm18.internal.superna.net",
+                                                    "type": "vm",
+                                                    "properties": [
+                                                        {
+                                                            "text": "property1",
+                                                            "value": "value1"
+                                                        },
+                                                        {
+                                                            "text": "property2",
+                                                            "value": "value2"
+                                                        },
+                                                        {
+                                                            "text": "property3",
+                                                            "value": "value3"
+                                                        },
+                                                        {
+                                                            "text": "property4",
+                                                            "value": "value4"
+                                                        }
+                                                    ],
+                                                    "icon": "resources/icons/vm.png"
+                                                },
+                                                {
+                                                    "leaf": true,
+                                                    "text": "vm19.internal.superna.net",
+                                                    "type": "vm",
+                                                    "properties": [
+                                                        {
+                                                            "text": "property1",
+                                                            "value": "value1"
+                                                        },
+                                                        {
+                                                            "text": "property2",
+                                                            "value": "value2"
+                                                        },
+                                                        {
+                                                            "text": "property3",
+                                                            "value": "value3"
+                                                        },
+                                                        {
+                                                            "text": "property4",
+                                                            "value": "value4"
+                                                        }
+                                                    ],
+                                                    "icon": "resources/icons/vm.png"
+                                                },
+                                                {
+                                                    "leaf": true,
+                                                    "text": "vm20.internal.superna.net",
+                                                    "type": "vm",
+                                                    "properties": [
+                                                        {
+                                                            "text": "property1",
+                                                            "value": "value1"
+                                                        },
+                                                        {
+                                                            "text": "property2",
+                                                            "value": "value2"
+                                                        },
+                                                        {
+                                                            "text": "property3",
+                                                            "value": "value3"
+                                                        },
+                                                        {
+                                                            "text": "property4",
+                                                            "value": "value4"
+                                                        }
+                                                    ],
+                                                    "icon": "resources/icons/vm.png"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "leaf": false,
+                                            "text": "blade6.internal.superna.net",
+                                            "type": "blade",
+                                            "icon": "resources/icons/domain.png",
+                                            "status": "critical",
+                                            "properties": [
+                                                {
+                                                    "text": "property1",
+                                                    "value": "value1"
+                                                },
+                                                {
+                                                    "text": "property2",
+                                                    "value": "value2"
+                                                },
+                                                {
+                                                    "text": "property3",
+                                                    "value": "value3"
+                                                },
+                                                {
+                                                    "text": "property4",
+                                                    "value": "value4"
+                                                }
+                                            ],
+                                            "children": [
+                                                {
+                                                    "leaf": true,
+                                                    "text": "vm21.internal.superna.net",
+                                                    "type": "vm",
+                                                    "properties": [
+                                                        {
+                                                            "text": "property1",
+                                                            "value": "value1"
+                                                        },
+                                                        {
+                                                            "text": "property2",
+                                                            "value": "value2"
+                                                        },
+                                                        {
+                                                            "text": "property3",
+                                                            "value": "value3"
+                                                        },
+                                                        {
+                                                            "text": "property4",
+                                                            "value": "value4"
+                                                        }
+                                                    ],
+                                                    "icon": "resources/icons/vm.png",
+                                                    "status": "critical"
+                                                },
+                                                {
+                                                    "leaf": true,
+                                                    "text": "vm22.internal.superna.net",
+                                                    "type": "vm",
+                                                    "properties": [
+                                                        {
+                                                            "text": "property1",
+                                                            "value": "value1"
+                                                        },
+                                                        {
+                                                            "text": "property2",
+                                                            "value": "value2"
+                                                        },
+                                                        {
+                                                            "text": "property3",
+                                                            "value": "value3"
+                                                        },
+                                                        {
+                                                            "text": "property4",
+                                                            "value": "value4"
+                                                        }
+                                                    ],
+                                                    "icon": "resources/icons/vm.png"
+                                                },
+                                                {
+                                                    "leaf": true,
+                                                    "text": "vm23.internal.superna.net",
+                                                    "type": "vm",
+                                                    "properties": [
+                                                        {
+                                                            "text": "property1",
+                                                            "value": "value1"
+                                                        },
+                                                        {
+                                                            "text": "property2",
+                                                            "value": "value2"
+                                                        },
+                                                        {
+                                                            "text": "property3",
+                                                            "value": "value3"
+                                                        },
+                                                        {
+                                                            "text": "property4",
+                                                            "value": "value4"
+                                                        }
+                                                    ],
+                                                    "icon": "resources/icons/vm.png"
+                                                },
+                                                {
+                                                    "leaf": true,
+                                                    "text": "vm24.internal.superna.net",
+                                                    "type": "vm",
+                                                    "properties": [
+                                                        {
+                                                            "text": "property1",
+                                                            "value": "value1"
+                                                        },
+                                                        {
+                                                            "text": "property2",
+                                                            "value": "value2"
+                                                        },
+                                                        {
+                                                            "text": "property3",
+                                                            "value": "value3"
+                                                        },
+                                                        {
+                                                            "text": "property4",
+                                                            "value": "value4"
+                                                        }
+                                                    ],
+                                                    "icon": "resources/icons/vm.png"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "leaf": false,
+                                            "text": "blade7.internal.superna.net",
+                                            "type": "blade",
+                                            "icon": "resources/icons/domain.png",
+                                            "status": "critical",
+                                            "properties": [
+                                                {
+                                                    "text": "property1",
+                                                    "value": "value1"
+                                                },
+                                                {
+                                                    "text": "property2",
+                                                    "value": "value2"
+                                                },
+                                                {
+                                                    "text": "property3",
+                                                    "value": "value3"
+                                                },
+                                                {
+                                                    "text": "property4",
+                                                    "value": "value4"
+                                                }
+                                            ],
+                                            "children": [
+                                                {
+                                                    "leaf": true,
+                                                    "text": "vm25.internal.superna.net",
+                                                    "type": "vm",
+                                                    "properties": [
+                                                        {
+                                                            "text": "property1",
+                                                            "value": "value1"
+                                                        },
+                                                        {
+                                                            "text": "property2",
+                                                            "value": "value2"
+                                                        },
+                                                        {
+                                                            "text": "property3",
+                                                            "value": "value3"
+                                                        },
+                                                        {
+                                                            "text": "property4",
+                                                            "value": "value4"
+                                                        }
+                                                    ],
+                                                    "icon": "resources/icons/vm.png",
+                                                    "status": "critical"
+                                                },
+                                                {
+                                                    "leaf": true,
+                                                    "text": "vm26.internal.superna.net",
+                                                    "type": "vm",
+                                                    "properties": [
+                                                        {
+                                                            "text": "property1",
+                                                            "value": "value1"
+                                                        },
+                                                        {
+                                                            "text": "property2",
+                                                            "value": "value2"
+                                                        },
+                                                        {
+                                                            "text": "property3",
+                                                            "value": "value3"
+                                                        },
+                                                        {
+                                                            "text": "property4",
+                                                            "value": "value4"
+                                                        }
+                                                    ],
+                                                    "icon": "resources/icons/vm.png"
+                                                },
+                                                {
+                                                    "leaf": true,
+                                                    "text": "vm27.internal.superna.net",
+                                                    "type": "vm",
+                                                    "properties": [
+                                                        {
+                                                            "text": "property1",
+                                                            "value": "value1"
+                                                        },
+                                                        {
+                                                            "text": "property2",
+                                                            "value": "value2"
+                                                        },
+                                                        {
+                                                            "text": "property3",
+                                                            "value": "value3"
+                                                        },
+                                                        {
+                                                            "text": "property4",
+                                                            "value": "value4"
+                                                        }
+                                                    ],
+                                                    "icon": "resources/icons/vm.png"
+                                                },
+                                                {
+                                                    "leaf": true,
+                                                    "text": "vm28.internal.superna.net",
+                                                    "type": "vm",
+                                                    "properties": [
+                                                        {
+                                                            "text": "property1",
+                                                            "value": "value1"
+                                                        },
+                                                        {
+                                                            "text": "property2",
+                                                            "value": "value2"
+                                                        },
+                                                        {
+                                                            "text": "property3",
+                                                            "value": "value3"
+                                                        },
+                                                        {
+                                                            "text": "property4",
+                                                            "value": "value4"
+                                                        }
+                                                    ],
+                                                    "icon": "resources/icons/vm.png"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "leaf": false,
+                                            "text": "blade8.internal.superna.net",
+                                            "type": "blade",
+                                            "icon": "resources/icons/domain.png",
+                                            "status": "critical",
+                                            "properties": [
+                                                {
+                                                    "text": "property1",
+                                                    "value": "value1"
+                                                },
+                                                {
+                                                    "text": "property2",
+                                                    "value": "value2"
+                                                },
+                                                {
+                                                    "text": "property3",
+                                                    "value": "value3"
+                                                },
+                                                {
+                                                    "text": "property4",
+                                                    "value": "value4"
+                                                }
+                                            ],
+                                            "children": [
+                                                {
+                                                    "leaf": true,
+                                                    "text": "vm29.internal.superna.net",
+                                                    "type": "vm",
+                                                    "properties": [
+                                                        {
+                                                            "text": "property1",
+                                                            "value": "value1"
+                                                        },
+                                                        {
+                                                            "text": "property2",
+                                                            "value": "value2"
+                                                        },
+                                                        {
+                                                            "text": "property3",
+                                                            "value": "value3"
+                                                        },
+                                                        {
+                                                            "text": "property4",
+                                                            "value": "value4"
+                                                        }
+                                                    ],
+                                                    "icon": "resources/icons/vm.png",
+                                                    "status": "critical"
+                                                },
+                                                {
+                                                    "leaf": true,
+                                                    "text": "vm30.internal.superna.net",
+                                                    "type": "vm",
+                                                    "properties": [
+                                                        {
+                                                            "text": "property1",
+                                                            "value": "value1"
+                                                        },
+                                                        {
+                                                            "text": "property2",
+                                                            "value": "value2"
+                                                        },
+                                                        {
+                                                            "text": "property3",
+                                                            "value": "value3"
+                                                        },
+                                                        {
+                                                            "text": "property4",
+                                                            "value": "value4"
+                                                        }
+                                                    ],
+                                                    "icon": "resources/icons/vm.png"
+                                                },
+                                                {
+                                                    "leaf": true,
+                                                    "text": "vm31.internal.superna.net",
+                                                    "type": "vm",
+                                                    "properties": [
+                                                        {
+                                                            "text": "property1",
+                                                            "value": "value1"
+                                                        },
+                                                        {
+                                                            "text": "property2",
+                                                            "value": "value2"
+                                                        },
+                                                        {
+                                                            "text": "property3",
+                                                            "value": "value3"
+                                                        },
+                                                        {
+                                                            "text": "property4",
+                                                            "value": "value4"
+                                                        }
+                                                    ],
+                                                    "icon": "resources/icons/vm.png"
+                                                },
+                                                {
+                                                    "leaf": true,
+                                                    "text": "vm32.internal.superna.net",
+                                                    "type": "vm",
+                                                    "properties": [
+                                                        {
+                                                            "text": "property1",
+                                                            "value": "value1"
+                                                        },
+                                                        {
+                                                            "text": "property2",
+                                                            "value": "value2"
+                                                        },
+                                                        {
+                                                            "text": "property3",
+                                                            "value": "value3"
+                                                        },
+                                                        {
+                                                            "text": "property4",
+                                                            "value": "value4"
+                                                        }
+                                                    ],
+                                                    "icon": "resources/icons/vm.png"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "leaf": false,
+            "text": "vblock2",
+            "type": "Vblock",
+            "icon": "resources/icons/vblock.png",
+            "properties": [
+                {
+                    "text": "property1",
+                    "value": "value1"
+                },
+                {
+                    "text": "property2",
+                    "value": "value2"
+                },
+                {
+                    "text": "property3",
+                    "value": "value3"
+                },
+                {
+                    "text": "property4",
+                    "value": "value4"
+                }
+            ],
+            "children": []
+        }
+    ]
+}

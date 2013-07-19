@@ -1,0 +1,71 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "AppController"
+    },
+    "designerId": "5ce08c6e-493a-4b00-996f-2d520acf139d",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doOrientationChange",
+                "designer|params": [
+                    "newOrientation"
+                ],
+                "implHandler": [
+                    "console.log(\"orientation changed to \" + newOrientation);\r",
+                    "\r",
+                    "var main = this.getMainContainer();\r",
+                    "\r",
+                    "var portrait = main.down(\"#portrait\");\r",
+                    "var landscape = main.down(\"#landscape\");\r",
+                    "\r",
+                    "var list = portrait.down('#vblock-list') || landscape.down('#vblock-list');\r",
+                    "var spcont = portrait.down('#spacetree-container') || landscape.down('#spacetree-container');\r",
+                    "var toolbar = portrait.down('#header-bar') || landscape.down('#header-bar');\r",
+                    "\r",
+                    "portrait.removeAll(false, true);\r",
+                    "landscape.removeAll(false, true);\r",
+                    "list.remove(toolbar, false);\r",
+                    "\r",
+                    "var target = landscape;\r",
+                    "\r",
+                    "if(newOrientation == 'portrait') {\r",
+                    "    target = portrait;\r",
+                    "    list.add(toolbar);\r",
+                    "} else {\r",
+                    "    landscape.add(toolbar);\r",
+                    "}\r",
+                    "target.add(list);\r",
+                    "target.add(spcont);\r",
+                    "main.setActiveItem(target);\r",
+                    ""
+                ]
+            },
+            "designerId": "2429c4f3-b255-4b10-8236-60292bc056e5"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainContainer",
+                "selector": "#main-container"
+            },
+            "designerId": "a3e8bb8c-23d1-40dc-b86e-85739c71f9b5"
+        }
+    ]
+}

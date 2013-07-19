@@ -1,0 +1,46 @@
+{
+    "type": "Ext.data.TreeStore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "model": "TreeModel",
+        "storeId": "VblockTreeStore",
+        "designer|userClassName": "VblockTreeStore",
+        "rootVisible": true,
+        "root": null
+    },
+    "designerId": "5f7e8925-33e9-456d-9e0e-e52a67dbcb3a",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "batchActions": false,
+                "url": "ajax/vblock.json"
+            },
+            "designerId": "6caa468d-b45f-4fc8-8560-33abad334988",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "useSimpleAccessors": true
+                    },
+                    "designerId": "50e4cb93-2e5d-4783-8954-fa448ad0be8b"
+                }
+            ]
+        }
+    ]
+}

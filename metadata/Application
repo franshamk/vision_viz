@@ -1,0 +1,60 @@
+{
+    "type": "Ext.app.Application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "TreeModel",
+            "VblockModel"
+        ],
+        "stores": [
+            "VblockTreeStore",
+            "MyJsonTreeStore"
+        ],
+        "views": [
+            "MainContainer"
+        ],
+        "controllers": [
+            "NavSheetController",
+            "AppController"
+        ],
+        "name": "MyApp"
+    },
+    "designerId": "application",
+    "cn": [
+        {
+            "type": "Ext.Viewport",
+            "reference": {
+                "name": "viewport",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "viewport"
+            },
+            "designerId": "652c0347-e8fb-4ec2-975b-ff1889678506",
+            "cn": [
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onViewportOrientationChange",
+                        "implHandler": [
+                            "this.getController(\"AppController\").doOrientationChange(newOrientation);\r",
+                            ""
+                        ],
+                        "name": "orientationchange"
+                    },
+                    "designerId": "7fc7699e-7c14-42af-bf08-c42377abb119"
+                }
+            ]
+        }
+    ]
+}

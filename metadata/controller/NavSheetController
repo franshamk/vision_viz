@@ -1,0 +1,527 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "NavSheetController"
+    },
+    "designerId": "43550407-8160-4482-8532-53707620be0c",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onButtonTap",
+                "implHandler": [
+                    "//Ext.getStore('VblockTreeStore').load();\r",
+                    "this.getNavSheet().show();"
+                ],
+                "name": "tap",
+                "designer|targetType": "Ext.Button",
+                "designer|controlQuery": "toolbar > #show-nav-sheet-button"
+            },
+            "designerId": "e21004ef-bdf2-47b9-ab6f-ecf3118beac7"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "navSheet",
+                "selector": "#vblock-nav-sheet"
+            },
+            "designerId": "a5b1b9f1-c401-45cc-b7b1-7a871bb80ac6"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onNestedlistSelectionChange",
+                "implHandler": [
+                    "if(selections.length > 1) {\r",
+                    "    parent = selections[0].parentNode;\r",
+                    "    if(parent) {\r",
+                    "        this.doSelectionChange(parent.id);\r",
+                    "    }else {\r",
+                    "        showVblockImage();\r",
+                    "    }\r",
+                    "} else {\r",
+                    "    history.pushState();\r",
+                    "    this.doSelectionChange(selections[0].id);\r",
+                    "}\r",
+                    "\r",
+                    "console.log(selections);"
+                ],
+                "name": "selectionchange",
+                "designer|targetType": "Ext.dataview.NestedList",
+                "designer|controlQuery": "nestedlist"
+            },
+            "designerId": "f053a4ab-e63c-49b8-848c-38348e6b85f3"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "componentView",
+                "selector": "#spacetree-container"
+            },
+            "designerId": "95f65fd0-edea-4add-beaf-9bf44e29cb01"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "vblockList",
+                "selector": "#vblock-list"
+            },
+            "designerId": "e2b4334e-aa3d-4039-8698-2d75081d39b7"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "redrawComponentView",
+                "designer|params": [
+                    "node"
+                ],
+                "implHandler": [
+                    "var json = this.getJSONFromTreeStore(node);\r",
+                    "\r",
+                    "if(!this.currentRoot || this.currentRoot != json.id) {\r",
+                    "    this.currentRoot = json.id;\r",
+                    "    this.redrawSpaceTree(json);\r",
+                    "}\r",
+                    "\r",
+                    "//emulate a click on the selected node.\r",
+                    "this.currentTree.onClick(node.internalId);\r",
+                    ""
+                ]
+            },
+            "designerId": "706e471a-51e3-4a7e-ad20-b6808926afd8"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "getJSONFromTreeStore",
+                "designer|params": [
+                    "targetNode"
+                ],
+                "implHandler": [
+                    "function convert(node) {\r",
+                    "\r",
+                    "    var data = {\r",
+                    "        id: node.internalId,\r",
+                    "        name: node.raw.text,\r",
+                    "        data: {\r",
+                    "            type: node.raw.type\r",
+                    "        },\r",
+                    "        children: []\r",
+                    "    };\r",
+                    "    node.childNodes.forEach(function(child) {\r",
+                    "        data.children.push(convert(child));\r",
+                    "    });\r",
+                    "\r",
+                    "    return data;\r",
+                    "}\r",
+                    "\r",
+                    "//bubble up the tree to get the root node associated with this click.\r",
+                    "var root;\r",
+                    "\r",
+                    "targetNode.bubble(function(treenode) {\r",
+                    "    root = treenode;\r",
+                    "    if (root.raw.type == \"Vblock\") {\r",
+                    "        return false;\r",
+                    "    }\r",
+                    "});\r",
+                    "\r",
+                    "return convert(root);"
+                ]
+            },
+            "designerId": "5d9b40d8-fe88-4325-a7ec-78de847d0dc7"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "redrawSpaceTree",
+                "designer|params": [
+                    "json"
+                ],
+                "implHandler": [
+                    "var component = this.getComponentView();\r",
+                    "\r",
+                    "component.removeAll(); \r",
+                    "\r",
+                    "function randomString() {\r",
+                    "    var chars = \"0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz\";\r",
+                    "    var string_length = 8;\r",
+                    "    var randomstring = '';\r",
+                    "    for (var i=0; i<string_length; i++) {\r",
+                    "        var rnum = Math.floor(Math.random() * chars.length);\r",
+                    "        randomstring += chars.substring(rnum,rnum+1);\r",
+                    "    }\r",
+                    "    return randomstring;\r",
+                    "}\r",
+                    "\r",
+                    "var divid = randomString();\r",
+                    "var divA = document.createElement(\"div\");\r",
+                    "divA.setAttribute(\"id\", divid);\r",
+                    "var width = component.element.getWidth();\r",
+                    "var height = component.element.getHeight();\r",
+                    "var offset = (width / 2) - 10;\r",
+                    "\r",
+                    "divA.style.width =  width + \"px\";\r",
+                    "divA.style.height = height + \"px\";\r",
+                    "\r",
+                    "\r",
+                    "component.add({\r",
+                    "    xtype: 'panel',\r",
+                    "    id: 'panel_' + divid,\r",
+                    "    width: component.getWidth(),\r",
+                    "    height: component.getHeight(),\r",
+                    "    contentEl: divA\r",
+                    "});\r",
+                    "\r",
+                    "var labelType, useGradients, nativeTextSupport, animate;\r",
+                    "\r",
+                    "var me = this;\r",
+                    "\r",
+                    "\r",
+                    "$jit.ST.Plot.NodeTypes.implement({\r",
+                    "    'component': {\r",
+                    "        'render': function (node, canvas) {\r",
+                    "            var img = new Image(),\r",
+                    "                pos = node.pos.getc(true),\r",
+                    "                ctx = canvas.getCtx();\r",
+                    "            var posx = pos.x - 16;\r",
+                    "            var posy = pos.y - 16;\r",
+                    "            if(!me.currentTree) {\r",
+                    "                img.onload = function () {\r",
+                    "                    ctx.drawImage(img, posx, posy);\r",
+                    "                };\r",
+                    "            } else {\r",
+                    "                ctx.drawImage(img, posx, posy);\r",
+                    "            }\r",
+                    "            var iconFile = 'resources/icons/domain2.png';\r",
+                    "            if (node.data.type == 'Vblock') {\r",
+                    "                iconFile = 'resources/icons/ucs.png';\r",
+                    "            } else if(node.data.type == 'vm') {\r",
+                    "                iconFile = 'resources/icons/vm2.png';                      \r",
+                    "            }\r",
+                    "            img.src = iconFile;\r",
+                    "        }, \r",
+                    "        'contains': function(node,pos){ \r",
+                    "            var npos = node.pos.getc(true); \r",
+                    "            dim = node.getData('dim'); \r",
+                    "            return this.nodeHelper.square.contains(npos, pos, dim); \r",
+                    "        } \r",
+                    "    }\r",
+                    "});\r",
+                    "\r",
+                    "var st = new $jit.ST({\r",
+                    "    //id of viz container element\r",
+                    "    injectInto: divid,\r",
+                    "    //set duration for the animation\r",
+                    "    duration: 600,\r",
+                    "    //set animation transition type\r",
+                    "    transition: $jit.Trans.Quart.easeInOut,\r",
+                    "    //set distance between node and its children\r",
+                    "    levelDistance: 15,\r",
+                    "    offsetX: offset,\r",
+                    "    //set only one level to show\r",
+                    "    levelsToShow: 1,\r",
+                    "    //enable panning\r",
+                    "    Navigation: {\r",
+                    "        enable:true,\r",
+                    "        panning:true\r",
+                    "    },\r",
+                    "    Tips: {  \r",
+                    "        enable: true,  \r",
+                    "        type: 'HTML',  \r",
+                    "        offsetX: 15,  \r",
+                    "        offsetY: 15,  \r",
+                    "        onShow: function(tip, node) { \r",
+                    "            tip.innerHTML = '<div style=\"background-color:#d0d0d0;padding:3px\">' + node.name + '</div>';  \r",
+                    "        }  \r",
+                    "    },\r",
+                    "    Events: {\r",
+                    "        enable: true,  \r",
+                    "        onRightClick: function(node, eventInfo, e) { \r",
+                    "            st.onClick(node.id);\r",
+                    "            me.setSelectedNode(node.id);\r",
+                    "            var node2 = me.getNodeFromId(node.id);\r",
+                    "            me.getController('ContextMenuController').showContextMenu(node2, e);\r",
+                    "        }\r",
+                    "    },\r",
+                    "\r",
+                    "    //set node and edge styles\r",
+                    "    //set overridable=true for styling individual\r",
+                    "    //nodes or edges\r",
+                    "\r",
+                    "    Node: {\r",
+                    "        height: 60,\r",
+                    "        width: 160,\r",
+                    "        align: 'left',\r",
+                    "        type: 'rectangle',\r",
+                    "        color: '#aaa',\r",
+                    "        overridable: true,\r",
+                    "        lineWidth: 1\r",
+                    "    },\r",
+                    "\r",
+                    "    Edge: {\r",
+                    "        type: 'bezier',\r",
+                    "        overridable: true\r",
+                    "    },\r",
+                    "\r",
+                    "    onBeforeCompute: function(node){\r",
+                    "        console.log(\"loading \" + node.name);\r",
+                    "    },\r",
+                    "\r",
+                    "    onAfterCompute: function(){\r",
+                    "        console.log(\"done\");\r",
+                    "    },\r",
+                    "\r",
+                    "    //This method is called on DOM label creation.\r",
+                    "    //Use this method to add event handlers and styles to\r",
+                    "    //your node.\r",
+                    "    onCreateLabel: function(label, node){\r",
+                    "        label.id = node.id;\r",
+                    "        var iconPath = me.getIconPath(node.data.type);\r",
+                    "\r",
+                    "        var labelText = node.name;\r",
+                    "        if(labelText.length > 15) {\r",
+                    "\r",
+                    "            labelText = labelText.slice(0, 15) + '...';\r",
+                    "        }\r",
+                    "\r",
+                    "\r",
+                    "        label.innerHTML = '<div> <img style=\"margin-left:3px;width:48px;height:48px;vertical-align:middle\" src=\"' + iconPath + '\"/><span style=\"margin-left:5px;font-size:0.6em\">' + labelText + '</span></div>';\r",
+                    "        label.onclick = function(){\r",
+                    "            st.onClick(node.id);\r",
+                    "        };\r",
+                    "        \r",
+                    "        //set label styles\r",
+                    "        var style = label.style;\r",
+                    "        //style.width = 60 + 'px';\r",
+                    "        //style.height = 17 + 'px';            \r",
+                    "        style.cursor = 'pointer';\r",
+                    "        //style.color = '#333';\r",
+                    "        //style.fontSize = '0.8em';\r",
+                    "        style.textAlign= 'center';\r",
+                    "        style.paddingTop = '6px';\r",
+                    "    },\r",
+                    "\r",
+                    "    //This method is called right before plotting\r",
+                    "    //a node. It's useful for changing an individual node\r",
+                    "    //style properties before plotting it.\r",
+                    "    //The data properties prefixed with a dollar\r",
+                    "    //sign will override the global node style properties.\r",
+                    "    onBeforePlotNode: function(node){\r",
+                    "        //add some color to the nodes in the path between the\r",
+                    "        //root node and the selected node.\r",
+                    "        if (node.selected) {\r",
+                    "            node.data.$color = \"#c1ddf1\";\r",
+                    "        } else {\r",
+                    "            delete node.data.$color;\r",
+                    "            //if the node belongs to the last plotted level\r",
+                    "            if(!node.anySubnode(\"exist\")) {\r",
+                    "                //count children number\r",
+                    "                var count = 0;\r",
+                    "                node.eachSubnode(function(n) { count++; });\r",
+                    "                //assign a node color based on\r",
+                    "                //how many children it has\r",
+                    "                node.data.$color = (count > 0 ) ? \"#e2eff8\" : \"#f0f0f0\";                                \r",
+                    "            } \r",
+                    "        }\r",
+                    "    },\r",
+                    "\r",
+                    "    //This method is called right before plotting\r",
+                    "    //an edge. It's useful for changing an individual edge\r",
+                    "    //style properties before plotting it.\r",
+                    "    //Edge data proprties prefixed with a dollar sign will\r",
+                    "    //override the Edge global style properties.\r",
+                    "    onBeforePlotLine: function(adj){\r",
+                    "        if (adj.nodeFrom.selected && adj.nodeTo.selected) {\r",
+                    "            adj.data.$color = \"#eed\";\r",
+                    "            adj.data.$lineWidth = 3;\r",
+                    "        }\r",
+                    "        else {\r",
+                    "            delete adj.data.$color;\r",
+                    "            delete adj.data.$lineWidth;\r",
+                    "        }\r",
+                    "    }\r",
+                    "});\r",
+                    "\r",
+                    "this.currentTree = st;\r",
+                    "//load json data\r",
+                    "this.currentTree.loadJSON(json);\r",
+                    "//compute node positions and layout\r",
+                    "this.currentTree.compute();\r",
+                    "//optional: make a translation of the tree\r",
+                    "//this.currentTree.geom.translate(new $jit.Complex(-200, 0), \"current\");"
+                ]
+            },
+            "designerId": "96a2eca4-7bd2-4e22-9aeb-58649d38529e"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "getNodeFromId",
+                "designer|params": [
+                    "id"
+                ],
+                "implHandler": [
+                    "var store =  Ext.getStore('VblockTreeStore');\r",
+                    "return store.getNodeById(id);"
+                ]
+            },
+            "designerId": "c16637af-3a9f-405c-ba74-055cee618e63"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "doSelectionChange",
+                "designer|params": [
+                    "id"
+                ],
+                "implHandler": [
+                    "var node = this.getNodeFromId(id);\r",
+                    "this.redrawComponentView(node);\r",
+                    ""
+                ]
+            },
+            "designerId": "0956602f-3c98-42d0-a76e-96afb314ede4"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "getIconPath",
+                "designer|params": [
+                    "nodeType"
+                ],
+                "implHandler": [
+                    "if(!nodeType) {\r",
+                    "    return 'resources/icons/vblock2.png';\r",
+                    "}\r",
+                    "\r",
+                    "var node = nodeType.toLowerCase();\r",
+                    "if(node == 'vblock') {\r",
+                    "    return 'resources/icons/vblock2.png';\r",
+                    "}\r",
+                    "if(node == 'domain') {\r",
+                    "    return 'resources/icons/domain2.png';\r",
+                    "}\r",
+                    "if(node == 'ucs') {\r",
+                    "    return 'resources/icons/ucs2.png';\r",
+                    "}\r",
+                    "if(node == 'blade') {\r",
+                    "    return 'resources/icons/blade.png';\r",
+                    "}\r",
+                    "if(node == 'chassis') {\r",
+                    "    return 'resources/icons/chassis.png';\r",
+                    "}\r",
+                    "if(node == 'vm') {\r",
+                    "    return 'resources/icons/vm2.png';\r",
+                    "}\r",
+                    "\r",
+                    "return 'resources/icons/error.png';"
+                ]
+            },
+            "designerId": "dd09c3de-5dc6-4cd9-94cb-797193772a32"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onNestedlistBack",
+                "implHandler": [
+                    "history.back();\r",
+                    "return false;"
+                ],
+                "name": "back",
+                "designer|targetType": "Ext.dataview.NestedList",
+                "designer|controlQuery": "nestedlist"
+            },
+            "designerId": "0ee5e915-7487-46fc-bc2b-fa38e73cf818"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "launch",
+                "implHandler": [
+                    "var me = this;\r",
+                    "window.addEventListener('popstate', function () {\r",
+                    "    var vblockList = me.getVblockList();  // won't have portal until app is initialized\r",
+                    "    if (vblockList) {\r",
+                    "        var node = vblockList.getLastNode(),\r",
+                    "            detailCard = vblockList.getDetailCard(),\r",
+                    "            detailCardActive = detailCard && vblockList.getActiveItem() == detailCard,\r",
+                    "            lastActiveList = vblockList.getLastActiveList();\r",
+                    "        vblockList.doBack(vblockList, node, lastActiveList, detailCardActive);\r",
+                    "    }\r",
+                    "}, false);"
+                ]
+            },
+            "designerId": "f14b2555-c255-41c4-8667-a74af9e900fe"
+        }
+    ]
+}
