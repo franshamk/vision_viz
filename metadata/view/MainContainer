@@ -103,7 +103,23 @@
                         "itemId": "spacetree-container",
                         "layout": "vbox"
                     },
-                    "designerId": "0b478dd5-f968-46a6-a9a3-394ee14477f7"
+                    "designerId": "0b478dd5-f968-46a6-a9a3-394ee14477f7",
+                    "cn": [
+                        {
+                            "type": "Ext.Img",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1,
+                                "height": null,
+                                "src": "resources/images/vblock-large.png"
+                            },
+                            "designerId": "0a38cfd2-149c-4216-87f6-6634dbb29ad5"
+                        }
+                    ]
                 },
                 {
                     "type": "Ext.dataview.NestedList",

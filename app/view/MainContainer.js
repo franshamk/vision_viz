@@ -63,7 +63,14 @@ Ext.define('MyApp.view.MainContainer', {
                         itemId: 'spacetree-container',
                         layout: {
                             type: 'vbox'
-                        }
+                        },
+                        items: [
+                            {
+                                xtype: 'image',
+                                flex: 1,
+                                src: 'resources/images/vblock-large.png'
+                            }
+                        ]
                     },
                     {
                         xtype: 'nestedlist',

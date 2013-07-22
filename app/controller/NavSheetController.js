@@ -28,7 +28,7 @@ Ext.define('MyApp.controller.NavSheetController', {
                 tap: 'onButtonTap'
             },
             "nestedlist": {
-                selectionchange: 'onNestedlistSelectionChange',
+                itemtap: 'onNestedlistItemTap',
                 back: 'onNestedlistBack'
             }
         }
@@ -39,23 +39,14 @@ Ext.define('MyApp.controller.NavSheetController', {
         this.getNavSheet().show();
     },
 
-    onNestedlistSelectionChange: function(nestedlist, list, selections, eOpts) {
-        if(selections.length > 1) {
-            parent = selections[0].parentNode;
-            if(parent) {
-                this.doSelectionChange(parent.id);
-            }else {
-                showVblockImage();
-            }
-        } else {
-            history.pushState();
-            this.doSelectionChange(selections[0].id);
-        }
-
-        console.log(selections);
+    onNestedlistItemTap: function(nestedlist, list, index, target, record, e, eOpts) {
+        history.pushState();
+        this.doSelectionChange(record.id);
     },
 
     onNestedlistBack: function(nestedlist, node, lastActiveList, detailCardActive, eOpts) {
+        console.log(node);
+
         history.back();
         return false;
     },
@@ -107,7 +98,7 @@ Ext.define('MyApp.controller.NavSheetController', {
     redrawSpaceTree: function(json) {
         var component = this.getComponentView();
 
-        component.removeAll(); 
+        component.removeAll(true, true); 
 
         function randomString() {
             var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
@@ -143,43 +134,11 @@ Ext.define('MyApp.controller.NavSheetController', {
 
         var me = this;
 
-
-        $jit.ST.Plot.NodeTypes.implement({
-            'component': {
-                'render': function (node, canvas) {
-                    var img = new Image(),
-                        pos = node.pos.getc(true),
-                        ctx = canvas.getCtx();
-                    var posx = pos.x - 16;
-                    var posy = pos.y - 16;
-                    if(!me.currentTree) {
-                        img.onload = function () {
-                            ctx.drawImage(img, posx, posy);
-                        };
-                    } else {
-                        ctx.drawImage(img, posx, posy);
-                    }
-                    var iconFile = 'resources/icons/domain2.png';
-                    if (node.data.type == 'Vblock') {
-                        iconFile = 'resources/icons/ucs.png';
-                    } else if(node.data.type == 'vm') {
-                        iconFile = 'resources/icons/vm2.png';                      
-                    }
-                    img.src = iconFile;
-                }, 
-                'contains': function(node,pos){ 
-                    var npos = node.pos.getc(true); 
-                    dim = node.getData('dim'); 
-                    return this.nodeHelper.square.contains(npos, pos, dim); 
-                } 
-            }
-        });
-
         var st = new $jit.ST({
             //id of viz container element
             injectInto: divid,
             //set duration for the animation
-            duration: 600,
+            duration: 400,
             //set animation transition type
             transition: $jit.Trans.Quart.easeInOut,
             //set distance between node and its children
@@ -228,14 +187,6 @@ Ext.define('MyApp.controller.NavSheetController', {
             Edge: {
                 type: 'bezier',
                 overridable: true
-            },
-
-            onBeforeCompute: function(node){
-                console.log("loading " + node.name);
-            },
-
-            onAfterCompute: function(){
-                console.log("done");
             },
 
             //This method is called on DOM label creation.
@@ -357,6 +308,20 @@ Ext.define('MyApp.controller.NavSheetController', {
         return 'resources/icons/error.png';
     },
 
+    showVblockImage: function() {
+        var panel = this.getComponentView();
+
+        panel.removeAll(true, true);
+
+        panel.add({
+            xtype: 'image',
+            flex: 1,
+            src: 'resources/images/vblock-large.png'
+        });
+
+
+    },
+
     launch: function() {
         var me = this;
         window.addEventListener('popstate', function () {
@@ -367,6 +332,18 @@ Ext.define('MyApp.controller.NavSheetController', {
                     detailCardActive = detailCard && vblockList.getActiveItem() == detailCard,
                     lastActiveList = vblockList.getLastActiveList();
                 vblockList.doBack(vblockList, node, lastActiveList, detailCardActive);
+
+                // if this one has a parent, go up the chain
+                var parent = node.parentNode;
+
+                // if the parent is defined, and it's not the root (i.e. it has its own parent)
+                // then bubble back.  
+                if(parent && parent.parentNode) {
+                    me.doSelectionChange(parent.id);
+                } else {
+                    me.currentRoot = null;
+                    me.showVblockImage();
+                }
             }
         }, false);
     }
