@@ -58,13 +58,23 @@ Ext.define('MyApp.view.MainContainer', {
                 },
                 items: [
                     {
+                        xtype: 'panel',
+                        flex: 1,
+                        itemId: 'spacetree-container',
+                        layout: {
+                            type: 'vbox'
+                        }
+                    },
+                    {
                         xtype: 'nestedlist',
                         flex: 1,
+                        html: 'hello hello hello',
                         id: 'vblock-list',
                         store: 'VblockTreeStore',
                         title: 'VBlock Nav',
                         toolbar: {
                             xtype: 'toolbar',
+                            docked: 'top',
                             itemId: 'header-bar',
                             layout: {
                                 pack: 'end',
@@ -82,14 +92,6 @@ Ext.define('MyApp.view.MainContainer', {
                                     iconCls: 'more'
                                 }
                             ]
-                        }
-                    },
-                    {
-                        xtype: 'panel',
-                        flex: 1,
-                        itemId: 'spacetree-container',
-                        layout: {
-                            type: 'vbox'
                         }
                     }
                 ]

@@ -92,6 +92,20 @@
             "designerId": "557251ae-0d88-46ea-886b-aa08ba9f67e3",
             "cn": [
                 {
+                    "type": "Ext.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": 1,
+                        "itemId": "spacetree-container",
+                        "layout": "vbox"
+                    },
+                    "designerId": "0b478dd5-f968-46a6-a9a3-394ee14477f7"
+                },
+                {
                     "type": "Ext.dataview.NestedList",
                     "reference": {
                         "name": "items",
@@ -100,6 +114,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "layout|flex": 1,
+                        "html": "hello hello hello",
                         "id": "vblock-list",
                         "store": "VblockTreeStore",
                         "title": "VBlock Nav"
@@ -116,6 +131,7 @@
                             "userConfig": {
                                 "container|align": null,
                                 "container|pack": "end",
+                                "docked": "top",
                                 "itemId": "header-bar",
                                 "ui": null
                             },
@@ -149,20 +165,6 @@
                             ]
                         }
                     ]
-                },
-                {
-                    "type": "Ext.Panel",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "layout|flex": 1,
-                        "itemId": "spacetree-container",
-                        "layout": "vbox"
-                    },
-                    "designerId": "0b478dd5-f968-46a6-a9a3-394ee14477f7"
                 }
             ]
         },
