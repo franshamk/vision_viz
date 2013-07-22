@@ -37,7 +37,7 @@
                     "    },\r",
                     "    useDefaultXhrHeader: false,\r",
                     "    success: function(data) {\r",
-                    "        alert(data);\r",
+                    "        alert(data.responseText);\r",
                     "    }\r",
                     "});\r",
                     "\r",

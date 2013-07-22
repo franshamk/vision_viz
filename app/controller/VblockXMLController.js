@@ -34,7 +34,7 @@ Ext.define('MyApp.controller.VblockXMLController', {
             },
             useDefaultXhrHeader: false,
             success: function(data) {
-                alert(data);
+                alert(data.responseText);
             }
         });
 
