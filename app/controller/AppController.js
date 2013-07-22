@@ -19,36 +19,77 @@ Ext.define('MyApp.controller.AppController', {
     config: {
         refs: {
             mainContainer: '#main-container'
+        },
+
+        control: {
+            "nestedlist": {
+                initialize: 'onNestedlistInitialize'
+            }
         }
+    },
+
+    onNestedlistInitialize: function(component, eOpts) {
+        var orientation = Ext.Viewport.getOrientation();
+        this.doOrientationChange(orientation);
     },
 
     doOrientationChange: function(newOrientation) {
         console.log("orientation changed to " + newOrientation);
 
-        var main = this.getMainContainer();
 
-        var portrait = main.down("#portrait");
-        var landscape = main.down("#landscape");
+        // need to wait until everythin is initialized;
+        var me = this;
 
-        var list = portrait.down('#vblock-list') || landscape.down('#vblock-list');
-        var spcont = portrait.down('#spacetree-container') || landscape.down('#spacetree-container');
-        var toolbar = portrait.down('#header-bar') || landscape.down('#header-bar');
+        var renderFn = function renderPanels() {
+            var main = me.getMainContainer();
 
-        portrait.removeAll(false, true);
-        landscape.removeAll(false, true);
-        list.remove(toolbar, false);
+            // wait until main is intialized;
+            if(!main) {
+                Ext.defer(renderFn, 50, this);
+                return;
+            }
 
-        var target = landscape;
+            var portrait = main.down("#portrait");
+            var landscape = main.down("#landscape");
 
-        if(newOrientation == 'portrait') {
-            target = portrait;
-            list.add(toolbar);
-        } else {
-            landscape.add(toolbar);
+            // wait until the containers are initialized
+            if(!portrait || !landscape) {
+                Ext.defer(renderFn, 50, this);
+                return;
+            }
+
+            var list = portrait.down('#vblock-list') || landscape.down('#vblock-list');
+            var spcont = portrait.down('#spacetree-container') || landscape.down('#spacetree-container');
+            var toolbar = portrait.down('#header-bar') || landscape.down('#header-bar');
+
+            // wait until the container's components are initialized
+            if(!list || !spcont || !toolbar) {
+                Ext.defer(renderFn, 50, this);
+                return;
+            }
+
+            portrait.removeAll(false, true);
+            landscape.removeAll(false, true);
+            list.remove(toolbar, false);
+
+            var target = landscape;
+
+            if(newOrientation == 'portrait') {
+                target = portrait;
+                target.add(toolbar);
+            } else {
+                landscape.add(toolbar);
+            }
+            target.add(spcont);
+            target.add(list);
+            main.setActiveItem(target);
+
         }
-        target.add(list);
-        target.add(spcont);
-        main.setActiveItem(target);
+
+        // call the function for the first time.
+        renderFn();
+
+
 
     }
 

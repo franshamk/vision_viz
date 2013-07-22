@@ -53,8 +53,7 @@
                             "text": "property4",
                             "value": "value4"
                         }
-                    ],
-                    "children": []
+                    ]
                 },
                 {
                     "leaf": false,
@@ -78,8 +77,7 @@
                             "text": "property4",
                             "value": "value4"
                         }
-                    ],
-                    "children": []
+                    ]
                 },
                 {
                     "leaf": false,
@@ -1181,8 +1179,7 @@
                     "text": "property4",
                     "value": "value4"
                 }
-            ],
-            "children": []
+            ]
         }
     ]
 }
