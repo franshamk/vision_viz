@@ -19,7 +19,8 @@
         ],
         "controllers": [
             "NavSheetController",
-            "AppController"
+            "AppController",
+            "VblockXMLController"
         ],
         "name": "MyApp"
     },

@@ -1,0 +1,76 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "VblockXMLController"
+    },
+    "designerId": "45e13f6d-91c7-4914-ac82-4fd329a935b7",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "fetchVBlockXML",
+                "designer|params": [
+                    "url"
+                ],
+                "implHandler": [
+                    "\r",
+                    "\r",
+                    "var cas = \"https://fm-sim-nimsoft.internal.superna.net/cas/v1/tickets\";\r",
+                    "var params = \"username=admin&password=dangerous\";\r",
+                    "\r",
+                    "\r",
+                    "\r",
+                    "function xdr(url, method, data, callback, errback) {\r",
+                    "    var req;\r",
+                    "    \r",
+                    "    if(XMLHttpRequest) {\r",
+                    "        console.log(\"in xmlhttp\");\r",
+                    "        req = new XMLHttpRequest();\r",
+                    " \r",
+                    "        if('withCredentials' in req) {\r",
+                    "            req.open(method, url, true);\r",
+                    "            req.onerror = errback;\r",
+                    "            req.onreadystatechange = function() {\r",
+                    "                if (req.readyState === 4) {\r",
+                    "                    if (req.status >= 200 && req.status < 400) {\r",
+                    "                        callback(req.responseText);\r",
+                    "                    } else {\r",
+                    "                        console.log(req);\r",
+                    "                        errback(new Error('Response returned with non-OK status'));\r",
+                    "                    }\r",
+                    "                }\r",
+                    "            };\r",
+                    "            req.send(data);\r",
+                    "        }\r",
+                    "    } else if(XDomainRequest) {\r",
+                    "        console.log(\"in xdomain\");\r",
+                    "        req = new XDomainRequest();\r",
+                    "        req.open(method, url);\r",
+                    "        req.onerror = errback;\r",
+                    "        req.onload = function() {\r",
+                    "            callback(req.responseText);\r",
+                    "        };\r",
+                    "        req.send(data);\r",
+                    "    } else {\r",
+                    "        errback(new Error('CORS not supported'));\r",
+                    "    }\r",
+                    "}\r",
+                    "\r",
+                    "xdr(cas, \"POST\", params, function(data) {alert('okay, mother fuckers!')}, function(err) {alert(err);});\r",
+                    ""
+                ]
+            },
+            "designerId": "32af46b9-416e-4e9a-bd57-eeb207e5e994"
+        }
+    ]
+}

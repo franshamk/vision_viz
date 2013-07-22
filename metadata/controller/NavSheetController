@@ -20,8 +20,10 @@
             "userConfig": {
                 "fn": "onButtonTap",
                 "implHandler": [
-                    "//Ext.getStore('VblockTreeStore').load();\r",
-                    "this.getNavSheet().show();"
+                    "//history.pushState();\r",
+                    "//this.getNavSheet().show();\r",
+                    "\r",
+                    "this.getApplication().getController('VblockXMLController').fetchVBlockXML();"
                 ],
                 "name": "tap",
                 "designer|targetType": "Ext.Button",
@@ -486,7 +488,16 @@
                 "implHandler": [
                     "var me = this;\r",
                     "window.addEventListener('popstate', function () {\r",
-                    "    var vblockList = me.getVblockList();  // won't have portal until app is initialized\r",
+                    "    \r",
+                    "    // if we're backing out of the flyout, then just close it.\r",
+                    "    var nav = me.getNavSheet();\r",
+                    "    if(!nav.isHidden()) {\r",
+                    "        nav.hide();\r",
+                    "        return;\r",
+                    "    }\r",
+                    "    \r",
+                    "    // otherwise, scroll back in the list.\r",
+                    "    var vblockList = me.getVblockList();  \r",
                     "    if (vblockList) {\r",
                     "        var node = vblockList.getLastNode(),\r",
                     "            detailCard = vblockList.getDetailCard(),\r",

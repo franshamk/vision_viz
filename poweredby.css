@@ -1,0 +1,15 @@
+#poweredby {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 15000;
+    opacity: 0.8;
+}
+
+#poweredby div {
+    position: relative;
+    width: 246px;
+    height: 100px;
+    background-image: url(resources/images/superna-logo.png);
+    background-repeat: no-repeat;
+}

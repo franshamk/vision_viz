@@ -35,8 +35,10 @@ Ext.define('MyApp.controller.NavSheetController', {
     },
 
     onButtonTap: function(button, e, eOpts) {
-        //Ext.getStore('VblockTreeStore').load();
-        this.getNavSheet().show();
+        //history.pushState();
+        //this.getNavSheet().show();
+
+        this.getApplication().getController('VblockXMLController').fetchVBlockXML();
     },
 
     onNestedlistItemTap: function(nestedlist, list, index, target, record, e, eOpts) {
@@ -325,7 +327,16 @@ Ext.define('MyApp.controller.NavSheetController', {
     launch: function() {
         var me = this;
         window.addEventListener('popstate', function () {
-            var vblockList = me.getVblockList();  // won't have portal until app is initialized
+
+            // if we're backing out of the flyout, then just close it.
+            var nav = me.getNavSheet();
+            if(!nav.isHidden()) {
+                nav.hide();
+                return;
+            }
+
+            // otherwise, scroll back in the list.
+            var vblockList = me.getVblockList();  
             if (vblockList) {
                 var node = vblockList.getLastNode(),
                     detailCard = vblockList.getDetailCard(),

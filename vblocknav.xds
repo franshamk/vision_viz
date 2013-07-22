@@ -106,6 +106,20 @@
                 "app/controller/AppController.js"
             ],
             "className": "AppController"
+        },
+        "fab945d8-1178-4325-b131-043d3a1332ba": {
+            "paths": [
+                "metadata/resource/css2"
+            ],
+            "className": "css2"
+        },
+        "45e13f6d-91c7-4914-ac82-4fd329a935b7": {
+            "paths": [
+                "metadata/controller/VblockXMLController",
+                "app/controller/override/VblockXMLController.js",
+                "app/controller/VblockXMLController.js"
+            ],
+            "className": "VblockXMLController"
         }
     },
     "viewOrderMap": {
@@ -119,7 +133,8 @@
         ],
         "controller": [
             "43550407-8160-4482-8532-53707620be0c",
-            "5ce08c6e-493a-4b00-996f-2d520acf139d"
+            "5ce08c6e-493a-4b00-996f-2d520acf139d",
+            "45e13f6d-91c7-4914-ac82-4fd329a935b7"
         ],
         "model": [
             "a1903918-b670-4d1e-bc79-8307f35be62e",
@@ -129,7 +144,8 @@
         ],
         "resource": [
             "93b7c494-095d-4ef5-8fec-f886ece5b4a4",
-            "9916fc56-8f7d-4e45-b29a-e1957c44b97f"
+            "9916fc56-8f7d-4e45-b29a-e1957c44b97f",
+            "fab945d8-1178-4325-b131-043d3a1332ba"
         ],
         "app": [
             "application"
