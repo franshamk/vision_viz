@@ -22,7 +22,7 @@ Ext.define('MyApp.controller.VblockXMLController', {
     fetchVBlockXML: function(url) {
 
 
-        var cas = "https://fm-sim-nimsoft.internal.superna.net/cas/v1/tickets";
+        var cas = "https://fm-sim-nimsoft.internal.superna.net:8443/cas/v1/tickets";
         var params = "username=admin&password=dangerous";
 
         Ext.Ajax.request({

@@ -25,7 +25,7 @@
                 "implHandler": [
                     "\r",
                     "\r",
-                    "var cas = \"https://fm-sim-nimsoft.internal.superna.net/cas/v1/tickets\";\r",
+                    "var cas = \"https://fm-sim-nimsoft.internal.superna.net:8443/cas/v1/tickets\";\r",
                     "var params = \"username=admin&password=dangerous\";\r",
                     "\r",
                     "Ext.Ajax.request({\r",
