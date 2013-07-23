@@ -37,7 +37,7 @@ Ext.application({
     controllers: [
         'NavSheetController',
         'AppController',
-        'VblockXMLController'
+        'VblockRESTController'
     ],
     name: 'MyApp',
 

@@ -6,9 +6,29 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userClassName": "VblockXMLController"
+        "visionURL": "https://fm-sim-nimsoft.internal.superna.net:8443",
+        "visionUser": "admin",
+        "visionPass": "dangerous",
+        "designer|userClassName": "VblockRESTController"
     },
     "designerId": "45e13f6d-91c7-4914-ac82-4fd329a935b7",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "visionURL",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "visionUser",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "visionPass",
+            "type": "string"
+        }
+    ],
     "cn": [
         {
             "type": "basicfunction",
@@ -18,7 +38,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "fetchVBlockXML",
+                "fn": "getServiceTicketAndResource",
                 "designer|params": [
                     "url"
                 ],
@@ -41,7 +61,7 @@
                     "    method: 'POST',\r",
                     "    url: me.ticketGrantingTicket,\r",
                     "    params: {\r",
-                    "        service: url\r",
+                    "        service: me.visionURL + url\r",
                     "    },\r",
                     "    useDefaultXhrHeader: false,\r",
                     "    success: function(data) {        \r",
@@ -72,17 +92,19 @@
                     "\r",
                     "alert(\"getting respource\");\r",
                     "\r",
+                    "url = this.config.visionURL + url;\r",
+                    "\r",
                     "if(ticket) {\r",
                     "    url = url +\"?ticket=\" + ticket;\r",
                     "}\r",
+                    "\r",
                     "var me = this;\r",
                     "Ext.Ajax.request({\r",
                     "    method: 'GET',\r",
                     "    url: url,\r",
                     "    useDefaultXhrHeader: false,\r",
                     "    success: function(data) {        \r",
-                    "        alert(data.responseText);    \r",
-                    "        me.getResource(\"https://fm-sim-nimsoft.internal.superna.net:8443/fm/vblocks\");\r",
+                    "        alert(data.responseText); \r",
                     "    }\r",
                     "});\r",
                     ""
@@ -98,19 +120,20 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "getTicketGrantingTicket",
+                "fn": "doLogin",
                 "implHandler": [
                     "var me = this;\r",
-                    "var cas = \"https://fm-sim-nimsoft.internal.superna.net:8443/cas/v1/tickets\";\r",
-                    "//var cas = \"ajax/tickets.xml\";\r",
-                    "var params = \"username=admin&password=dangerous\";\r",
-                    "alert('getting ticket granting ticket');\r",
+                    "\r",
+                    "var cas = me.config.visionURL + \"/cas/v1/tickets\";\r",
+                    "var base = \"/fm\";\r",
+                    "\r",
+                    "\r",
                     "Ext.Ajax.request({\r",
                     "    method: 'POST',\r",
                     "    url: cas,\r",
                     "    params: {\r",
-                    "        username: 'admin',\r",
-                    "        password: 'dangerous'\r",
+                    "        username: me.config.visionUser,\r",
+                    "        password: me.config.visionPass\r",
                     "    },\r",
                     "    useDefaultXhrHeader: false,\r",
                     "    success: function(data) {        \r",
@@ -118,7 +141,7 @@
                     "        el.innerHTML = data.responseText;        \r",
                     "        var list = el.getElementsByTagName('form');\r",
                     "        me.ticketGrantingTicket = list[0].action;\r",
-                    "        alert(me.ticketGrantingTicket);\r",
+                    "        me.getServiceTicketAndResource(base);\r",
                     "    }\r",
                     "});"
                 ]
@@ -138,7 +161,7 @@
                     "application"
                 ],
                 "implHandler": [
-                    "this.getTicketGrantingTicket();"
+                    "this.doLogin();"
                 ]
             },
             "designerId": "81465ace-cf52-4455-88d6-138ceb7cf159"
