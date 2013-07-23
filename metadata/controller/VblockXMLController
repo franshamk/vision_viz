@@ -69,7 +69,7 @@
                     "var cas = \"https://fm-sim-nimsoft.internal.superna.net:8443/cas/v1/tickets\";\r",
                     "//var cas = \"ajax/tickets.xml\";\r",
                     "var params = \"username=admin&password=dangerous\";\r",
-                    "\r",
+                    "alert('getting ticket granting ticket');\r",
                     "Ext.Ajax.request({\r",
                     "    method: 'POST',\r",
                     "    url: cas,\r",
@@ -83,6 +83,7 @@
                     "        el.innerHTML = data.responseText;        \r",
                     "        var list = el.getElementsByTagName('form');\r",
                     "        me.ticketGrantingTicket = list[0].action;\r",
+                    "        alert(me.ticketGrantingTicket);\r",
                     "    }\r",
                     "});"
                 ]

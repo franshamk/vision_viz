@@ -55,7 +55,7 @@ Ext.define('MyApp.controller.VblockXMLController', {
         var cas = "https://fm-sim-nimsoft.internal.superna.net:8443/cas/v1/tickets";
         //var cas = "ajax/tickets.xml";
         var params = "username=admin&password=dangerous";
-
+        alert('getting ticket granting ticket');
         Ext.Ajax.request({
             method: 'POST',
             url: cas,
@@ -69,6 +69,7 @@ Ext.define('MyApp.controller.VblockXMLController', {
                 el.innerHTML = data.responseText;        
                 var list = el.getElementsByTagName('form');
                 me.ticketGrantingTicket = list[0].action;
+                alert(me.ticketGrantingTicket);
             }
         });
     },
