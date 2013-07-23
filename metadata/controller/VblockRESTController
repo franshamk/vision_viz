@@ -91,7 +91,6 @@
                 "implHandler": [
                     "\r",
                     "alert(\"getting respource\");\r",
-                    "\r",
                     "url = this.config.visionURL + url;\r",
                     "\r",
                     "if(ticket) {\r",

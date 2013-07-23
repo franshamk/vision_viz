@@ -57,7 +57,6 @@ Ext.define('MyApp.controller.VblockRESTController', {
     getResource: function(url, ticket) {
 
         alert("getting respource");
-
         url = this.config.visionURL + url;
 
         if(ticket) {
