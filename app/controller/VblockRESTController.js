@@ -216,6 +216,7 @@ Ext.define('MyApp.controller.VblockRESTController', {
         };
 
         var updateViews = function () {
+            alert('updating views');
             history.pushState();
             me.getApplication().getController('NavSheetController').doSelectionChange(record.id);    
             nestedlist.fireEvent('levelloaded', this, list, index, target, record, e);
@@ -226,6 +227,8 @@ Ext.define('MyApp.controller.VblockRESTController', {
             updateViews();
             return;
         } 
+
+        alert(record.get('link'));
 
         // need to add loadmask here
         Ext.Ajax.request({
