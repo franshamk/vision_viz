@@ -69,12 +69,11 @@
                     "url, ticket"
                 ],
                 "implHandler": [
+                    "\r",
+                    "alert(\"getting respource\");\r",
                     "Ext.Ajax.request({\r",
                     "    method: 'GET',\r",
-                    "    url: url ,\r",
-                    "    params: {\r",
-                    "        ticket: ticket\r",
-                    "    },\r",
+                    "    url: url +\"?ticket=\" + ticket,\r",
                     "    useDefaultXhrHeader: false,\r",
                     "    success: function(data) {        \r",
                     "        alert(data.responseText);        \r",

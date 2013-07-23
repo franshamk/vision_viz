@@ -52,12 +52,11 @@ Ext.define('MyApp.controller.VblockXMLController', {
     },
 
     getResource: function(url, ticket) {
+
+        alert("getting respource");
         Ext.Ajax.request({
             method: 'GET',
-            url: url ,
-            params: {
-                ticket: ticket
-            },
+            url: url +"?ticket=" + ticket,
             useDefaultXhrHeader: false,
             success: function(data) {        
                 alert(data.responseText);        
