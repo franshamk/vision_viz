@@ -56,6 +56,18 @@
                     "designerId": "7fc7699e-7c14-42af-bf08-c42377abb119"
                 }
             ]
+        },
+        {
+            "type": "Ext.Loader",
+            "reference": {
+                "name": "loader",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "disableCaching": false
+            },
+            "designerId": "48df7155-1046-4b89-8967-a1a4912762f3"
         }
     ]
 }

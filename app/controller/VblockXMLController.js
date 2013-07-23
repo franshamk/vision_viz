@@ -25,7 +25,7 @@ Ext.define('MyApp.controller.VblockXMLController', {
         alert("getting service ticket");
 
         // need to wait until a ticket granting ticket exists. 
-        if(!me.ticketGrantingtTicket) {
+        if(!me.ticketGrantingTicket) {
             Ext.defer(me.fetchVBlockXML, 50, this);
             return;
         }

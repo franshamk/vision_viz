@@ -15,7 +15,7 @@
 
 //@require @packageOverrides
 Ext.Loader.setConfig({
-
+    disableCaching: false
 });
 
 Ext.application({
