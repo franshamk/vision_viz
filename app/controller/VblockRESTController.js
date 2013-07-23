@@ -149,7 +149,7 @@ Ext.define('MyApp.controller.VblockRESTController', {
                     success: function(data) {        
                         alert(data.responseText); 
                         // fetch the resource on success. 
-                        me.getBaseResource(url, data.responseText);
+                        me.getBaseResource(base, data.responseText);
                     }
                 });
             }

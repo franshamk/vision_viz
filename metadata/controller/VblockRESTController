@@ -195,7 +195,7 @@
                     "            success: function(data) {        \r",
                     "                alert(data.responseText); \r",
                     "                // fetch the resource on success. \r",
-                    "                me.getBaseResource(url, data.responseText);\r",
+                    "                me.getBaseResource(base, data.responseText);\r",
                     "            }\r",
                     "        });\r",
                     "    }\r",
