@@ -6,7 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
-        "visionURL": "/TouchProjects/vblocknav",
+        "visionURL": "https://fm-sim-nimsoft.internal.superna.net:8443",
         "visionUser": "admin",
         "visionPass": "dangerous",
         "designer|userClassName": "VblockRESTController"

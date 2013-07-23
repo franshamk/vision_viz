@@ -17,7 +17,7 @@ Ext.define('MyApp.controller.VblockRESTController', {
     extend: 'Ext.app.Controller',
 
     config: {
-        visionURL: '/TouchProjects/vblocknav',
+        visionURL: 'https://fm-sim-nimsoft.internal.superna.net:8443',
         visionUser: 'admin',
         visionPass: 'dangerous'
     },
