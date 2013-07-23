@@ -20,9 +20,35 @@ Ext.define('MyApp.controller.VblockXMLController', {
     },
 
     fetchVBlockXML: function(url) {
+        var me = this;
+
+        // need to wait until a ticket granting ticket exists. 
+        if(!me.ticketGrantingtTicket) {
+            Ext.defer(me.fetchVBlockXML, 50, this);
+            return;
+        }
+
+        // NExt, get a service ticket. 
+
+        Ext.Ajax.request({
+            method: 'POST',
+            url: me.ticketGrantingTicket,
+            params: {
+                service: url
+            },
+            useDefaultXhrHeader: false,
+            success: function(data) {        
+                alert(data.responseText);
+            }
+        });
 
 
+    },
+
+    getTicketGrantingTicket: function() {
+        var me = this;
         var cas = "https://fm-sim-nimsoft.internal.superna.net:8443/cas/v1/tickets";
+        //var cas = "ajax/tickets.xml";
         var params = "username=admin&password=dangerous";
 
         Ext.Ajax.request({
@@ -33,49 +59,17 @@ Ext.define('MyApp.controller.VblockXMLController', {
                 password: 'dangerous'
             },
             useDefaultXhrHeader: false,
-            success: function(data) {
-                alert(data.responseText);
+            success: function(data) {        
+                var el = document.createElement('div');
+                el.innerHTML = data.responseText;        
+                var list = el.getElementsByTagName('form');
+                me.ticketGrantingTicket = list[0].action;
             }
         });
+    },
 
-        /*function xdr(url, method, data, callback, errback) {
-        var req;
-
-        if(XMLHttpRequest) {
-        console.log("in xmlhttp");
-        req = new XMLHttpRequest();
-
-        if('withCredentials' in req) {
-        req.open(method, url, true);
-        req.onerror = errback;
-        req.onreadystatechange = function() {
-        if (req.readyState === 4) {
-        if (req.status >= 200 && req.status < 400) {
-        callback(req.responseText);
-        } else {
-        console.log(req);
-        errback(new Error('Response returned with non-OK status'));
-        }
-        }
-        };
-        req.send(data);
-        }
-        } else if(XDomainRequest) {
-        console.log("in xdomain");
-        req = new XDomainRequest();
-        req.open(method, url);
-        req.onerror = errback;
-        req.onload = function() {
-        callback(req.responseText);
-        };
-        req.send(data);
-        } else {
-        errback(new Error('CORS not supported'));
-        }
-        }
-
-        xdr(cas, "POST", params, function(data) {alert('okay, mother fuckers!')}, function(err) {alert(err);});*/
-
+    init: function(application) {
+        this.getTicketGrantingTicket();
     }
 
 });

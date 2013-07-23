@@ -23,65 +23,84 @@
                     "url"
                 ],
                 "implHandler": [
+                    "var me = this;\r",
                     "\r",
+                    "// need to wait until a ticket granting ticket exists. \r",
+                    "if(!me.ticketGrantingtTicket) {\r",
+                    "    Ext.defer(me.fetchVBlockXML, 50, this);\r",
+                    "    return;\r",
+                    "}\r",
                     "\r",
+                    "// NExt, get a service ticket. \r",
+                    "\r",
+                    "Ext.Ajax.request({\r",
+                    "    method: 'POST',\r",
+                    "    url: me.ticketGrantingTicket,\r",
+                    "    params: {\r",
+                    "    \tservice: url\r",
+                    "    },\r",
+                    "    useDefaultXhrHeader: false,\r",
+                    "    success: function(data) {        \r",
+                    "        alert(data.responseText);\r",
+                    "    }\r",
+                    "});\r",
+                    "\r",
+                    ""
+                ]
+            },
+            "designerId": "32af46b9-416e-4e9a-bd57-eeb207e5e994"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "getTicketGrantingTicket",
+                "implHandler": [
+                    "var me = this;\r",
                     "var cas = \"https://fm-sim-nimsoft.internal.superna.net:8443/cas/v1/tickets\";\r",
+                    "//var cas = \"ajax/tickets.xml\";\r",
                     "var params = \"username=admin&password=dangerous\";\r",
                     "\r",
                     "Ext.Ajax.request({\r",
                     "    method: 'POST',\r",
                     "    url: cas,\r",
                     "    params: {\r",
-                    "        username: 'admin',\r",
-                    "        password: 'dangerous'\r",
+                    "    \tusername: 'admin',\r",
+                    "    \tpassword: 'dangerous'\r",
                     "    },\r",
                     "    useDefaultXhrHeader: false,\r",
-                    "    success: function(data) {\r",
-                    "        alert(data.responseText);\r",
+                    "    success: function(data) {        \r",
+                    "        var el = document.createElement('div');\r",
+                    "        el.innerHTML = data.responseText;        \r",
+                    "        var list = el.getElementsByTagName('form');\r",
+                    "        me.ticketGrantingTicket = list[0].action;\r",
                     "    }\r",
-                    "});\r",
-                    "\r",
-                    "/*function xdr(url, method, data, callback, errback) {\r",
-                    "    var req;\r",
-                    "    \r",
-                    "    if(XMLHttpRequest) {\r",
-                    "        console.log(\"in xmlhttp\");\r",
-                    "        req = new XMLHttpRequest();\r",
-                    " \r",
-                    "        if('withCredentials' in req) {\r",
-                    "            req.open(method, url, true);\r",
-                    "            req.onerror = errback;\r",
-                    "            req.onreadystatechange = function() {\r",
-                    "                if (req.readyState === 4) {\r",
-                    "                    if (req.status >= 200 && req.status < 400) {\r",
-                    "                        callback(req.responseText);\r",
-                    "                    } else {\r",
-                    "                        console.log(req);\r",
-                    "                        errback(new Error('Response returned with non-OK status'));\r",
-                    "                    }\r",
-                    "                }\r",
-                    "            };\r",
-                    "            req.send(data);\r",
-                    "        }\r",
-                    "    } else if(XDomainRequest) {\r",
-                    "        console.log(\"in xdomain\");\r",
-                    "        req = new XDomainRequest();\r",
-                    "        req.open(method, url);\r",
-                    "        req.onerror = errback;\r",
-                    "        req.onload = function() {\r",
-                    "            callback(req.responseText);\r",
-                    "        };\r",
-                    "        req.send(data);\r",
-                    "    } else {\r",
-                    "        errback(new Error('CORS not supported'));\r",
-                    "    }\r",
-                    "}\r",
-                    "\r",
-                    "xdr(cas, \"POST\", params, function(data) {alert('okay, mother fuckers!')}, function(err) {alert(err);});*/\r",
-                    ""
+                    "});"
                 ]
             },
-            "designerId": "32af46b9-416e-4e9a-bd57-eeb207e5e994"
+            "designerId": "af3cbfd9-bd02-4afe-af3b-12f59bc65849"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    "this.getTicketGrantingTicket();"
+                ]
+            },
+            "designerId": "81465ace-cf52-4455-88d6-138ceb7cf159"
         }
     ]
 }
