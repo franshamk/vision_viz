@@ -61,7 +61,7 @@
                     "    method: 'POST',\r",
                     "    url: me.ticketGrantingTicket,\r",
                     "    params: {\r",
-                    "        service: me.visionURL + url\r",
+                    "        service: me.config.visionURL + url\r",
                     "    },\r",
                     "    useDefaultXhrHeader: false,\r",
                     "    success: function(data) {        \r",

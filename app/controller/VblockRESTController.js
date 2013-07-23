@@ -41,7 +41,7 @@ Ext.define('MyApp.controller.VblockRESTController', {
             method: 'POST',
             url: me.ticketGrantingTicket,
             params: {
-                service: me.visionURL + url
+                service: me.config.visionURL + url
             },
             useDefaultXhrHeader: false,
             success: function(data) {        
