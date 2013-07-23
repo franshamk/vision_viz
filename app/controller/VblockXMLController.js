@@ -54,12 +54,18 @@ Ext.define('MyApp.controller.VblockXMLController', {
     getResource: function(url, ticket) {
 
         alert("getting respource");
+
+        if(ticket) {
+            url = url +"?ticket=" + ticket;
+        }
+        var me = this;
         Ext.Ajax.request({
             method: 'GET',
-            url: url +"?ticket=" + ticket,
+            url: url,
             useDefaultXhrHeader: false,
             success: function(data) {        
-                alert(data.responseText);        
+                alert(data.responseText);    
+                me.getResource("https://fm-sim-nimsoft.internal.superna.net:8443/fm/vblocks");
             }
         });
 
