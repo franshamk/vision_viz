@@ -120,6 +120,8 @@ Ext.define('MyApp.controller.VblockRESTController', {
         var base = "/fm/vblocks";
 
 
+        alert('doing login');
+
         Ext.Ajax.request({
             method: 'POST',
             url: cas,
@@ -128,7 +130,9 @@ Ext.define('MyApp.controller.VblockRESTController', {
                 password: me.config.visionPass
             },
             useDefaultXhrHeader: false,
-            success: function(data) {        
+            success: function(data) {   
+
+                alert('got ticketGrantingTicket');
                 var el = document.createElement('div');
                 el.innerHTML = data.responseText;        
                 var list = el.getElementsByTagName('form');
