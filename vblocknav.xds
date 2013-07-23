@@ -120,11 +120,20 @@
                 "app/controller/VblockRESTController.js"
             ],
             "className": "VblockRESTController"
+        },
+        "ad9ac025-8001-422b-a2f0-5b49d4e7d21a": {
+            "paths": [
+                "metadata/view/DynamicList",
+                "app/view/override/DynamicList.js",
+                "app/view/DynamicList.js"
+            ],
+            "className": "DynamicList"
         }
     },
     "viewOrderMap": {
         "view": [
-            "39000966-fd31-42ac-b30c-4b0dff611f7e"
+            "39000966-fd31-42ac-b30c-4b0dff611f7e",
+            "ad9ac025-8001-422b-a2f0-5b49d4e7d21a"
         ],
         "store": [
             "5027d7dc-ef60-43e1-9a11-d968522b2d1a",

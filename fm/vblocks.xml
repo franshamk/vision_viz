@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<vblocks>
+  <vblock>
+    <alias>VB-100</alias>
+    <dbId>39</dbId>
+    <description>VB-100 (Vblock 100BX-4G)</description>
+    <moId>VB100-SerialNumber</moId>
+    <name/>
+    <url>https://fm-sim-nimsoft.internal.superna.net:8443/fm/vblocks/39</url>
+    <assetId/>
+    <calculatedStatus>critical</calculatedStatus>
+    <firmwareRev/>
+    <fru>false</fru>
+    <hardwareRev/>
+    <lastOperStatus>unknown</lastOperStatus>
+    <lastStatusChange>1970-01-01T00:00:00Z</lastStatusChange>
+    <localInstanceId/>
+    <localName/>
+    <mfgDate>1970-01-01T00:00:00Z</mfgDate>
+    <modelName>Vblock 100BX-4G</modelName>
+    <operStatus>critical</operStatus>
+    <phyClass/>
+    <serialNum>VB100-SerialNumber</serialNum>
+    <softwareRev/>
+    <vendor>The VCE Company, Inc.</vendor>
+    <vendorType>1.3.6.1.4.1.38819.1.5.10.2.100.2</vendorType>
+    <link href="https://fm-sim-nimsoft.internal.superna.net:8443/fm/vblocks/39/vlans" rel="children" type="application/xml"/>
+    <lastUpdateTime>2013-07-23T15:20:58.790Z</lastUpdateTime>
+    <location>
+      <building>67 Leisure Bay</building>
+      <floor>1st</floor>
+      <geo>Winnipeg, Man</geo>
+      <room>Kitchen</room>
+      <row>1</row>
+      <tile>1</tile>
+    </location>
+    <compute>
+      <alias/>
+      <dbId>23</dbId>
+      <description>Vblock Compute</description>
+      <moId>VblockCompute</moId>
+      <name/>
+      <url>http://franshamk-pc.internal.superna.net/TouchProjects/vblocknav/fm/computesystems.xml</url>
+      <assetId/>
+      <calculatedStatus>major</calculatedStatus>
+      <firmwareRev/>
+      <fru>false</fru>
+      <hardwareRev/>
+      <lastOperStatus>unknown</lastOperStatus>
+      <lastStatusChange>1970-01-01T00:00:00Z</lastStatusChange>
+      <localInstanceId/>
+      <localName/>
+      <mfgDate>1970-01-01T00:00:00Z</mfgDate>
+      <modelName/>
+      <operStatus>major</operStatus>
+      <phyClass/>
+      <serialNum/>
+      <softwareRev/>
+      <vendor/>
+      <vendorType>0.0</vendorType>
+      <link href="http://franshamk-pc.internal.superna.net/TouchProjects/vblocknav/fm/computesystems.xml" rel="children" type="application/xml"/>
+    </compute>
+    <connectivity>
+      <alias/>
+      <dbId>36</dbId>
+      <description>Vblock Connectivity</description>
+      <moId>VblockConnectivity</moId>
+      <name/>
+      <url>https://fm-sim-nimsoft.internal.superna.net:8443/fm/vblockconnectivity/36</url>
+      <assetId/>
+      <calculatedStatus>notApplicable</calculatedStatus>
+      <firmwareRev/>
+      <fru>false</fru>
+      <hardwareRev/>
+      <lastOperStatus>unknown</lastOperStatus>
+      <lastStatusChange>1970-01-01T00:00:00Z</lastStatusChange>
+      <localInstanceId/>
+      <localName/>
+      <mfgDate>1970-01-01T00:00:00Z</mfgDate>
+      <modelName/>
+      <operStatus>notApplicable</operStatus>
+      <phyClass>stack(11)</phyClass>
+      <serialNum/>
+      <softwareRev/>
+      <vendor>0.0</vendor>
+      <vendorType>0.0</vendorType>
+      <link href="https://fm-sim-nimsoft.internal.superna.net:8443/fm/vblockconnectivity/36/links" rel="children" type="application/xml"/>
+      <lastUpdateTime>2013-07-23T15:20:58.780Z</lastUpdateTime>
+    </connectivity>
+    <network>
+      <alias/>
+      <dbId>20</dbId>
+      <description>Vblock Network</description>
+      <moId>VblockNetwork</moId>
+      <name/>
+      <url>https://fm-sim-nimsoft.internal.superna.net:8443/fm/network/20</url>
+      <assetId/>
+      <calculatedStatus>minor</calculatedStatus>
+      <firmwareRev/>
+      <fru>false</fru>
+      <hardwareRev/>
+      <lastOperStatus>unknown</lastOperStatus>
+      <lastStatusChange>1970-01-01T00:00:00Z</lastStatusChange>
+      <localInstanceId/>
+      <localName/>
+      <mfgDate>1970-01-01T00:00:00Z</mfgDate>
+      <modelName/>
+      <operStatus>minor</operStatus>
+      <phyClass/>
+      <serialNum/>
+      <softwareRev/>
+      <vendor/>
+      <vendorType>0.0</vendorType>
+      <link href="https://fm-sim-nimsoft.internal.superna.net:8443/fm/network/20/switches" rel="children" type="application/xml"/>
+    </network>
+    <rack>
+      <alias/>
+      <dbId>37</dbId>
+      <description>Vblock Racks</description>
+      <moId>VblockRacks</moId>
+      <name/>
+      <url>https://fm-sim-nimsoft.internal.superna.net:8443/fm/vblockrack/37</url>
+      <assetId/>
+      <calculatedStatus>notApplicable</calculatedStatus>
+      <firmwareRev/>
+      <fru>false</fru>
+      <hardwareRev/>
+      <lastOperStatus>unknown</lastOperStatus>
+      <lastStatusChange>1970-01-01T00:00:00Z</lastStatusChange>
+      <localInstanceId/>
+      <localName/>
+      <mfgDate>1970-01-01T00:00:00Z</mfgDate>
+      <modelName/>
+      <operStatus>notApplicable</operStatus>
+      <phyClass>stack(11)</phyClass>
+      <serialNum/>
+      <softwareRev/>
+      <vendor/>
+      <vendorType>0.0</vendorType>
+      <link href="https://fm-sim-nimsoft.internal.superna.net:8443/fm/vblockrack/37/racks" rel="children" type="application/xml"/>
+    </rack>
+    <storage>
+      <alias/>
+      <dbId>17</dbId>
+      <description>Vblock Storage</description>
+      <moId>VblockStorage</moId>
+      <name/>
+      <url>https://fm-sim-nimsoft.internal.superna.net:8443/fm/storage/17</url>
+      <assetId/>
+      <calculatedStatus>critical</calculatedStatus>
+      <firmwareRev/>
+      <fru>false</fru>
+      <hardwareRev/>
+      <lastOperStatus>unknown</lastOperStatus>
+      <lastStatusChange>1970-01-01T00:00:00Z</lastStatusChange>
+      <localInstanceId/>
+      <localName/>
+      <mfgDate>1970-01-01T00:00:00Z</mfgDate>
+      <modelName/>
+      <operStatus>critical</operStatus>
+      <phyClass/>
+      <serialNum/>
+      <softwareRev/>
+      <vendor/>
+      <vendorType>0.0</vendorType>
+      <link href="https://fm-sim-nimsoft.internal.superna.net:8443/fm/storage/17/storagearrays" rel="children" type="application/xml"/>
+    </storage>
+  </vblock>
+</vblocks>

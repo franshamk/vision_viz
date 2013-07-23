@@ -39,6 +39,9 @@ Ext.define('MyApp.model.TreeModel', {
             },
             {
                 name: 'properties'
+            },
+            {
+                name: 'link'
             }
         ]
     }

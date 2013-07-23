@@ -11,20 +11,22 @@
         "storeId": "VblockTreeStore",
         "designer|userClassName": "VblockTreeStore",
         "rootVisible": true,
-        "root": null
+        "root": [
+            "text: \"root property\",\r",
+            "children: []"
+        ]
     },
     "designerId": "5f7e8925-33e9-456d-9e0e-e52a67dbcb3a",
     "cn": [
         {
-            "type": "Ext.data.proxy.Ajax",
+            "type": "Ext.data.proxy.Memory",
             "reference": {
                 "name": "proxy",
                 "type": "object"
             },
             "codeClass": null,
             "userConfig": {
-                "batchActions": false,
-                "url": "ajax/vblock.json"
+                "batchActions": false
             },
             "designerId": "6caa468d-b45f-4fc8-8560-33abad334988",
             "cn": [

@@ -22,34 +22,76 @@ Ext.define('MyApp.controller.VblockRESTController', {
         visionPass: 'dangerous'
     },
 
-    getServiceTicketAndResource: function(url) {
+    getBaseResource: function(url, ticket) {
         var me = this;
 
-        alert("getting service ticket");
+        url = this.config.visionURL + url;
 
-        // need to wait until a ticket granting ticket exists. 
-        if(!me.ticketGrantingTicket) {
-            Ext.defer(me.fetchVBlockXML, 50, this);
-            return;
+        if(ticket) {
+            url = url +"?ticket=" + ticket;
         }
 
-        alert ("got service ticket, getting aontoher ciket")
-        alert(me.ticketGrantingTicket);
 
-        // NExt, get a service ticket. 
+
         Ext.Ajax.request({
-            method: 'POST',
-            url: me.ticketGrantingTicket,
-            params: {
-                service: me.config.visionURL + url
-            },
+            method: 'GET',
+            url: url,
             useDefaultXhrHeader: false,
-            success: function(data) {        
-                alert(data.responseText); 
-                // fetch the resource on success.
-                me.getResource(url, data.responseText);
+            success: function(data) {  
+
+                var parser=new DOMParser();
+                var	xmlDoc=parser.parseFromString(data.responseText,"text/xml");
+
+                var vbs = me.xmlToJson(xmlDoc);
+
+
+                for(var i in vbs.vblocks) {
+
+                    if(i != 'vblock') {
+                        continue;
+                    }
+
+                    var vb = vbs.vblocks[i];
+
+                    // these should be the individual vblocks
+                    console.log(vb);
+                    var comp = Ext.create('MyApp.model.TreeModel', {
+                        text:'compute',
+                        link: vb.compute.url['#text']
+                    });
+
+                    var network = Ext.create('MyApp.model.TreeModel', {
+                        text:'network',
+                        link: vb.network.url['#text']
+                    });   
+
+                    var storage = Ext.create('MyApp.model.TreeModel', {
+                        text:'storage',
+                        link: vb.storage.url['#text']
+                    });    
+
+                    var conn = Ext.create('MyApp.model.TreeModel', {
+                        text:'connectivity',
+                        link: vb.connectivity.url['#text']
+                    });     
+
+                    var rack = Ext.create('MyApp.model.TreeModel', {
+                        text:'rack',
+                        link: vb.rack.url['#text']
+                    });          
+
+                    var vb = Ext.create('MyApp.model.TreeModel', {
+                        text:'vblock ' + vb.serialNum['#text'],
+                        children: [comp, network, storage, conn, rack]
+                    });
+
+                    Ext.getStore('VblockTreeStore').getRoot().appendChild(vb);
+
+                } 
+
             }
         });
+
 
 
     },
@@ -58,10 +100,6 @@ Ext.define('MyApp.controller.VblockRESTController', {
 
         alert("getting respource");
         url = this.config.visionURL + url;
-
-        if(ticket) {
-            url = url +"?ticket=" + ticket;
-        }
 
         var me = this;
         Ext.Ajax.request({
@@ -79,7 +117,7 @@ Ext.define('MyApp.controller.VblockRESTController', {
         var me = this;
 
         var cas = me.config.visionURL + "/cas/v1/tickets";
-        var base = "/fm";
+        var base = "/fm/vblocks";
 
 
         Ext.Ajax.request({
@@ -95,13 +133,144 @@ Ext.define('MyApp.controller.VblockRESTController', {
                 el.innerHTML = data.responseText;        
                 var list = el.getElementsByTagName('form');
                 me.ticketGrantingTicket = list[0].action;
-                me.getServiceTicketAndResource(base);
+
+                // NExt, get a service ticket. 
+                Ext.Ajax.request({
+                    method: 'POST',
+                    url: me.ticketGrantingTicket,
+                    params: {
+                        service: me.config.visionURL + url
+                    },
+                    useDefaultXhrHeader: false,
+                    success: function(data) {        
+                        alert(data.responseText); 
+                        // fetch the resource on success. 
+                        me.getBaseResource(url, data.responseText);
+                    }
+                });
             }
         });
     },
 
     init: function(application) {
         this.doLogin();
+    },
+
+    xmlToJson: function(xml) {
+        var me = this;
+
+        //Create the return object
+        var obj = {};
+
+        if (xml.nodeType == 1) { // element
+            // do attributes
+            if (xml.attributes.length > 0) {
+                obj["@attributes"] = {};
+                for (var j = 0; j < xml.attributes.length; j++) {
+                    var attribute = xml.attributes.item(j);
+                    obj["@attributes"][attribute.nodeName] = attribute.nodeValue;
+                }
+            }
+        } else if (xml.nodeType == 3) { // text
+            obj = xml.nodeValue;
+        }
+
+        // do children
+        if (xml.hasChildNodes()) {
+            for(var i = 0; i < xml.childNodes.length; i++) {
+                var item = xml.childNodes.item(i);
+                var nodeName = item.nodeName;
+                if (typeof(obj[nodeName]) == "undefined") {
+                    obj[nodeName] = me.xmlToJson(item);
+                } else {
+                    if (typeof(obj[nodeName].push) == "undefined") {
+                        var old = obj[nodeName];
+                        obj[nodeName] = [];
+                        obj[nodeName].push(old);
+                    }
+                    obj[nodeName].push(me.xmlToJson(item));
+                }
+            }
+        }
+        return obj;
+    },
+
+    onDynListItemTap: function(nestedlist, list, index, target, record, e, eOpts) {
+        var me = this;
+
+        var onSuccess =  function(data) {
+            var children = me.processDoc(data.responseText);  
+
+            if(!children || children.length == 0) {
+                return;
+            }
+
+            children.forEach(function(child) {
+                record.appendChild(child);
+            });
+            updateViews();
+        };
+
+        var updateViews = function () {
+            history.pushState();
+            me.getApplication().getController('NavSheetController').doSelectionChange(record.id);    
+            nestedlist.fireEvent('levelloaded', this, list, index, target, record, e);
+        };   
+
+
+        if(record.hasChildNodes()) {
+            updateViews();
+            return;
+        } 
+
+        // need to add loadmask here
+        Ext.Ajax.request({
+            method: 'GET',
+            url: record.get('link'),
+            useDefaultXhrHeader: false,
+            success: onSuccess
+        });
+    },
+
+    processDoc: function(xml) {
+        var parser=new DOMParser();
+        var	xmlDoc=parser.parseFromString(xml,"text/xml");
+
+        var topcontainer = this.xmlToJson(xmlDoc);  // computesystems
+        console.log(topcontainer);
+
+        var models = []
+
+        for(var i in topcontainer) {
+            var elements = topcontainer[i];
+
+            for(var j in elements) { // computesystem[]   
+
+                var element = elements[j]; // computesystem  THIS IS THE MODEL. 
+
+                // append the links as children to this model. 
+
+                if(!element.link) {
+                    console.log("no links in element");
+                    console.log(element);
+                    continue;
+                }
+
+                for (var child in element.link) {
+                    var url = element.link[child]['@attributes'].href;
+                    var name = url.split('/').pop();
+
+                    var model = Ext.create('MyApp.model.TreeModel', {
+                        text: name,
+                        link: url
+                    });
+                    models.push(model);
+                }
+            }
+
+        }
+
+        return models;
     }
 
 });

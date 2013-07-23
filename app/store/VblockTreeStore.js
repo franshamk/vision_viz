@@ -25,10 +25,10 @@ Ext.define('MyApp.store.VblockTreeStore', {
         model: 'MyApp.model.TreeModel',
         storeId: 'VblockTreeStore',
         rootVisible: true,
+        root: 'text: "root property",\r\nchildren: []',
         proxy: {
-            type: 'ajax',
+            type: 'memory',
             batchActions: false,
-            url: 'ajax/vblock.json',
             reader: {
                 type: 'json',
                 useSimpleAccessors: true

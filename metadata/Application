@@ -15,7 +15,8 @@
             "MyJsonTreeStore"
         ],
         "views": [
-            "MainContainer"
+            "MainContainer",
+            "DynamicList"
         ],
         "controllers": [
             "NavSheetController",
@@ -64,9 +65,6 @@
                 "type": "object"
             },
             "codeClass": null,
-            "userConfig": {
-                "disableCaching": false
-            },
             "designerId": "48df7155-1046-4b89-8967-a1a4912762f3"
         }
     ]

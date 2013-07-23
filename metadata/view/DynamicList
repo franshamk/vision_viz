@@ -1,0 +1,124 @@
+{
+    "type": "Ext.dataview.NestedList",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "html": "hello hello hello",
+        "id": "vblock-list",
+        "designer|userClassName": "DynamicList",
+        "designer|userAlias": "mynestedlist15",
+        "store": "VblockTreeStore",
+        "title": "VBlock Nav"
+    },
+    "designerId": "ad9ac025-8001-422b-a2f0-5b49d4e7d21a",
+    "cn": [
+        {
+            "type": "Ext.Toolbar",
+            "reference": {
+                "name": "toolbar",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": null,
+                "container|pack": "end",
+                "docked": "top",
+                "itemId": "header-bar",
+                "ui": null
+            },
+            "designerId": "69bd03d3-39d1-4e13-9cb9-557c6c09e372",
+            "cn": [
+                {
+                    "type": "Ext.Spacer",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "designerId": "b54b5a14-df9e-4e9c-9280-058920fd0dff"
+                },
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "show-nav-sheet-button",
+                        "ui": "plain",
+                        "width": 45,
+                        "iconCls": "more",
+                        "text": null
+                    },
+                    "designerId": "9c8a8072-97d7-4439-8daf-51e588f9c127"
+                }
+            ]
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onItemTap",
+                "designer|params": [
+                    "list, index, target, record, e"
+                ],
+                "implHandler": [
+                    "MyApp.app.getController('VblockRESTController').onDynListItemTap(this, list, index, target, record, e);\r",
+                    "\r",
+                    ""
+                ]
+            },
+            "designerId": "f5b0048d-cca5-44c6-a587-b7f7b23963c2"
+        },
+        {
+            "type": "customevent",
+            "reference": {
+                "name": "customEvents",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "levelloaded",
+                "params": [
+                    "self, list, index, target, record, e "
+                ]
+            },
+            "designerId": "6de5194d-de34-4db4-9533-b145e91cc3b6"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onLevelLoaded",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    store = list.getStore(),\r",
+                    "    node = store.getAt(index);\r",
+                    "\r",
+                    "me.fireEvent('itemtap', this, list, index, target, record, e);\r",
+                    "if (node.isLeaf()) {\r",
+                    "    me.fireEvent('leafitemtap', this, list, index, target, record, e);\r",
+                    "    me.goToLeaf(node);\r",
+                    "}\r",
+                    "else {\r",
+                    "    this.goToNode(node);\r",
+                    "}"
+                ],
+                "name": "levelloaded"
+            },
+            "designerId": "c9d16077-7f24-4355-a7b8-d3ecba254bbe"
+        }
+    ]
+}

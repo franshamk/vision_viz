@@ -122,65 +122,17 @@
                     ]
                 },
                 {
-                    "type": "Ext.dataview.NestedList",
+                    "type": "linkedinstance",
                     "reference": {
                         "name": "items",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "layout|flex": 1,
-                        "html": "hello hello hello",
-                        "id": "vblock-list",
-                        "store": "VblockTreeStore",
-                        "title": "VBlock Nav"
+                        "layout|flex": 1
                     },
-                    "designerId": "b1886dd0-87ca-4aa1-b474-0acb733049bc",
-                    "cn": [
-                        {
-                            "type": "Ext.Toolbar",
-                            "reference": {
-                                "name": "toolbar",
-                                "type": "object"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "container|align": null,
-                                "container|pack": "end",
-                                "docked": "top",
-                                "itemId": "header-bar",
-                                "ui": null
-                            },
-                            "designerId": "69bd03d3-39d1-4e13-9cb9-557c6c09e372",
-                            "cn": [
-                                {
-                                    "type": "Ext.Spacer",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "designerId": "b54b5a14-df9e-4e9c-9280-058920fd0dff"
-                                },
-                                {
-                                    "type": "Ext.Button",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "itemId": "show-nav-sheet-button",
-                                        "ui": "plain",
-                                        "width": 45,
-                                        "iconCls": "more",
-                                        "text": null
-                                    },
-                                    "designerId": "9c8a8072-97d7-4439-8daf-51e588f9c127"
-                                }
-                            ]
-                        }
-                    ]
+                    "designerId": "137e834f-6c99-49dc-b353-8c97f0f8ec66",
+                    "masterInstanceId": "ad9ac025-8001-422b-a2f0-5b49d4e7d21a"
                 }
             ]
         },

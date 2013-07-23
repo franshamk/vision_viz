@@ -15,7 +15,7 @@
 
 //@require @packageOverrides
 Ext.Loader.setConfig({
-    disableCaching: false
+
 });
 
 Ext.application({
@@ -32,7 +32,8 @@ Ext.application({
         'MyJsonTreeStore'
     ],
     views: [
-        'MainContainer'
+        'MainContainer',
+        'DynamicList'
     ],
     controllers: [
         'NavSheetController',

@@ -94,6 +94,18 @@
                 "name": "properties"
             },
             "designerId": "31973ca1-04e1-4600-8d17-e403073c83fb"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "link"
+            },
+            "designerId": "c18faf7a-3ed4-47c1-96b8-dce3880d256c"
         }
     ]
 }

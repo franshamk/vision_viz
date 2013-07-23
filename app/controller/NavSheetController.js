@@ -28,7 +28,6 @@ Ext.define('MyApp.controller.NavSheetController', {
                 tap: 'onButtonTap'
             },
             "nestedlist": {
-                itemtap: 'onNestedlistItemTap',
                 back: 'onNestedlistBack'
             }
         }
@@ -38,12 +37,7 @@ Ext.define('MyApp.controller.NavSheetController', {
         //history.pushState();
         //this.getNavSheet().show();
 
-        this.getApplication().getController('VblockRESTController').getResource("/fm/vblocks");
-    },
-
-    onNestedlistItemTap: function(nestedlist, list, index, target, record, e, eOpts) {
-        history.pushState();
-        this.doSelectionChange(record.id);
+        this.getApplication().getController('VblockRESTController').getBaseResource("/fm/vblocks.xml");
     },
 
     onNestedlistBack: function(nestedlist, node, lastActiveList, detailCardActive, eOpts) {

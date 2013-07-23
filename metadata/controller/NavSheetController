@@ -23,7 +23,7 @@
                     "//history.pushState();\r",
                     "//this.getNavSheet().show();\r",
                     "\r",
-                    "this.getApplication().getController('VblockRESTController').getResource(\"/fm/vblocks\");"
+                    "this.getApplication().getController('VblockRESTController').getBaseResource(\"/fm/vblocks.xml\");"
                 ],
                 "name": "tap",
                 "designer|targetType": "Ext.Button",
@@ -43,25 +43,6 @@
                 "selector": "#vblock-nav-sheet"
             },
             "designerId": "a5b1b9f1-c401-45cc-b7b1-7a871bb80ac6"
-        },
-        {
-            "type": "controlleraction",
-            "reference": {
-                "name": "listeners",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "onNestedlistItemTap",
-                "implHandler": [
-                    "history.pushState();\r",
-                    "this.doSelectionChange(record.id);"
-                ],
-                "name": "itemtap",
-                "designer|targetType": "Ext.dataview.NestedList",
-                "designer|controlQuery": "nestedlist"
-            },
-            "designerId": "f053a4ab-e63c-49b8-848c-38348e6b85f3"
         },
         {
             "type": "controllerref",

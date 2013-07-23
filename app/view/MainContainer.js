@@ -16,6 +16,10 @@
 Ext.define('MyApp.view.MainContainer', {
     extend: 'Ext.Container',
 
+    requires: [
+        'MyApp.view.DynamicList'
+    ],
+
     config: {
         id: 'main-container',
         layout: {
@@ -73,33 +77,8 @@ Ext.define('MyApp.view.MainContainer', {
                         ]
                     },
                     {
-                        xtype: 'nestedlist',
-                        flex: 1,
-                        html: 'hello hello hello',
-                        id: 'vblock-list',
-                        store: 'VblockTreeStore',
-                        title: 'VBlock Nav',
-                        toolbar: {
-                            xtype: 'toolbar',
-                            docked: 'top',
-                            itemId: 'header-bar',
-                            layout: {
-                                pack: 'end',
-                                type: 'hbox'
-                            },
-                            items: [
-                                {
-                                    xtype: 'spacer'
-                                },
-                                {
-                                    xtype: 'button',
-                                    itemId: 'show-nav-sheet-button',
-                                    ui: 'plain',
-                                    width: 45,
-                                    iconCls: 'more'
-                                }
-                            ]
-                        }
+                        xtype: 'mynestedlist15',
+                        flex: 1
                     }
                 ]
             },
