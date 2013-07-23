@@ -37,16 +37,17 @@
                     "alert(me.ticketGrantingTicket);\r",
                     "\r",
                     "// NExt, get a service ticket. \r",
-                    "\r",
                     "Ext.Ajax.request({\r",
                     "    method: 'POST',\r",
                     "    url: me.ticketGrantingTicket,\r",
                     "    params: {\r",
-                    "    \tservice: url\r",
+                    "        service: url\r",
                     "    },\r",
                     "    useDefaultXhrHeader: false,\r",
                     "    success: function(data) {        \r",
-                    "        alert(data.responseText);\r",
+                    "        alert(data.responseText); \r",
+                    "        // fetch the resource on success.\r",
+                    "\t\tme.getResource(url, data.responseText);\r",
                     "    }\r",
                     "});\r",
                     "\r",
@@ -54,6 +55,35 @@
                 ]
             },
             "designerId": "32af46b9-416e-4e9a-bd57-eeb207e5e994"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "getResource",
+                "designer|params": [
+                    "url, ticket"
+                ],
+                "implHandler": [
+                    "Ext.Ajax.request({\r",
+                    "    method: 'GET',\r",
+                    "    url: url ,\r",
+                    "    params: {\r",
+                    "        ticket: ticket\r",
+                    "    },\r",
+                    "    useDefaultXhrHeader: false,\r",
+                    "    success: function(data) {        \r",
+                    "        alert(data.responseText);        \r",
+                    "    }\r",
+                    "});\r",
+                    ""
+                ]
+            },
+            "designerId": "2883a432-e746-4858-bea2-0380aa8011d1"
         },
         {
             "type": "basicfunction",
@@ -74,8 +104,8 @@
                     "    method: 'POST',\r",
                     "    url: cas,\r",
                     "    params: {\r",
-                    "    \tusername: 'admin',\r",
-                    "    \tpassword: 'dangerous'\r",
+                    "        username: 'admin',\r",
+                    "        password: 'dangerous'\r",
                     "    },\r",
                     "    useDefaultXhrHeader: false,\r",
                     "    success: function(data) {        \r",

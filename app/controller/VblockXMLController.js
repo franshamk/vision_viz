@@ -34,7 +34,6 @@ Ext.define('MyApp.controller.VblockXMLController', {
         alert(me.ticketGrantingTicket);
 
         // NExt, get a service ticket. 
-
         Ext.Ajax.request({
             method: 'POST',
             url: me.ticketGrantingTicket,
@@ -43,10 +42,27 @@ Ext.define('MyApp.controller.VblockXMLController', {
             },
             useDefaultXhrHeader: false,
             success: function(data) {        
-                alert(data.responseText);
+                alert(data.responseText); 
+                // fetch the resource on success.
+                me.getResource(url, data.responseText);
             }
         });
 
+
+    },
+
+    getResource: function(url, ticket) {
+        Ext.Ajax.request({
+            method: 'GET',
+            url: url ,
+            params: {
+                ticket: ticket
+            },
+            useDefaultXhrHeader: false,
+            success: function(data) {        
+                alert(data.responseText);        
+            }
+        });
 
     },
 
