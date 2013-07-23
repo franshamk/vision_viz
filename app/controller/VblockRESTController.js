@@ -17,7 +17,7 @@ Ext.define('MyApp.controller.VblockRESTController', {
     extend: 'Ext.app.Controller',
 
     config: {
-        visionURL: 'https://fm-sim-nimsoft.internal.superna.net:8443',
+        visionURL: '/TouchProjects/vblocknav',
         visionUser: 'admin',
         visionPass: 'dangerous'
     },
@@ -57,27 +57,27 @@ Ext.define('MyApp.controller.VblockRESTController', {
                     console.log(vb);
                     var comp = Ext.create('MyApp.model.TreeModel', {
                         text:'compute',
-                        link: vb.compute.link[0]['@attributes'].href
+                        link: vb.compute.link['@attributes'].href
                     });
 
                     var network = Ext.create('MyApp.model.TreeModel', {
                         text:'network',
-                        link: vb.network.link[0]['@attributes'].href
+                        link: vb.network.link['@attributes'].href
                     });   
 
                     var storage = Ext.create('MyApp.model.TreeModel', {
                         text:'storage',
-                        link: vb.storage.link[0]['@attributes'].href
+                        link: vb.storage.link['@attributes'].href
                     });    
 
                     var conn = Ext.create('MyApp.model.TreeModel', {
                         text:'connectivity',
-                        link: vb.connectivity.link[0]['@attributes'].href
+                        link: vb.connectivity.link['@attributes'].href
                     });     
 
                     var rack = Ext.create('MyApp.model.TreeModel', {
                         text:'rack',
-                        link: vb.rack.link[0]['@attributes'].href
+                        link: vb.rack.link['@attributes'].href
                     });          
 
                     var vb = Ext.create('MyApp.model.TreeModel', {
