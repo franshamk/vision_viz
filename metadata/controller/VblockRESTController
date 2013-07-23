@@ -306,6 +306,7 @@
                     "var updateViews = function () {\r",
                     "    alert('updating views');\r",
                     "    history.pushState();\r",
+                    "    alert(record.id);\r",
                     "    me.getApplication().getController('NavSheetController').doSelectionChange(record.id);    \r",
                     "    nestedlist.fireEvent('levelloaded', this, list, index, target, record, e);\r",
                     "};   \r",

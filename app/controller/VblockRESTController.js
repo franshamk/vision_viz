@@ -218,6 +218,7 @@ Ext.define('MyApp.controller.VblockRESTController', {
         var updateViews = function () {
             alert('updating views');
             history.pushState();
+            alert(record.id);
             me.getApplication().getController('NavSheetController').doSelectionChange(record.id);    
             nestedlist.fireEvent('levelloaded', this, list, index, target, record, e);
         };   
