@@ -38,7 +38,7 @@ Ext.define('MyApp.controller.NavSheetController', {
         //history.pushState();
         //this.getNavSheet().show();
 
-        this.getApplication().getController('VblockXMLController').fetchVBlockXML();
+        this.getApplication().getController('VblockXMLController').fetchVBlockXML("https://fm-sim-nimsoft.internal.superna.net:8443/fm/about");
     },
 
     onNestedlistItemTap: function(nestedlist, list, index, target, record, e, eOpts) {

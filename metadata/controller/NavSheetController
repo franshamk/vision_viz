@@ -23,7 +23,7 @@
                     "//history.pushState();\r",
                     "//this.getNavSheet().show();\r",
                     "\r",
-                    "this.getApplication().getController('VblockXMLController').fetchVBlockXML();"
+                    "this.getApplication().getController('VblockXMLController').fetchVBlockXML(\"https://fm-sim-nimsoft.internal.superna.net:8443/fm/about\");"
                 ],
                 "name": "tap",
                 "designer|targetType": "Ext.Button",
