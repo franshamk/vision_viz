@@ -57,27 +57,27 @@ Ext.define('MyApp.controller.VblockRESTController', {
                     console.log(vb);
                     var comp = Ext.create('MyApp.model.TreeModel', {
                         text:'compute',
-                        link: vb.compute.url['#text']
+                        link: vb.compute.link[0]['@attributes'].href
                     });
 
                     var network = Ext.create('MyApp.model.TreeModel', {
                         text:'network',
-                        link: vb.network.url['#text']
+                        link: vb.network.link[0]['@attributes'].href
                     });   
 
                     var storage = Ext.create('MyApp.model.TreeModel', {
                         text:'storage',
-                        link: vb.storage.url['#text']
+                        link: vb.storage.link[0]['@attributes'].href
                     });    
 
                     var conn = Ext.create('MyApp.model.TreeModel', {
                         text:'connectivity',
-                        link: vb.connectivity.url['#text']
+                        link: vb.connectivity.link[0]['@attributes'].href
                     });     
 
                     var rack = Ext.create('MyApp.model.TreeModel', {
                         text:'rack',
-                        link: vb.rack.url['#text']
+                        link: vb.rack.link[0]['@attributes'].href
                     });          
 
                     var vb = Ext.create('MyApp.model.TreeModel', {
