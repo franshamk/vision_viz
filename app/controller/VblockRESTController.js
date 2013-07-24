@@ -204,6 +204,8 @@ Ext.define('MyApp.controller.VblockRESTController', {
         var me = this;
 
         var onSuccess =  function(data) {
+
+            me.retrievingData = false;
             var children = me.processDoc(data.responseText);  
 
             if(!children || children.length == 0) {
@@ -234,12 +236,25 @@ Ext.define('MyApp.controller.VblockRESTController', {
 
         // need to add loadmask here
         this.setLoading({xtype: 'loadmask', message: "loading..."});
+
+        this.retrievingData = true;
+
         Ext.Ajax.request({
             method: 'GET',
             url: record.get('link'),
             useDefaultXhrHeader: false,
             success: onSuccess
         });
+
+        var loadingError = function() {
+            if(me.retrievingData) {
+                alert("failed to retrieve: " + url);
+                me.retrievingData = false;
+                me.setLoading(false);
+            }
+        };
+
+        Ext.defer(loadingError, 5000, this);
     },
 
     processDoc: function(xml) {
@@ -340,6 +355,7 @@ Ext.define('MyApp.controller.VblockRESTController', {
 
     setLoading: function(loading) {
         this.getApplication().getController('NavSheetController').setLoading(loading);
+
     }
 
 });

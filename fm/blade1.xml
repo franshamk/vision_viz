@@ -1,1 +1,128 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?><computeserver><alias>sys/chassis-1/blade-1</alias><dbId>511</dbId><description></description><moId>sys/chassis-1/blade-1</moId><name>sys/chassis-1/blade-1</name><url>https://vb701-viofm.vce.superna.net:8443/fm/computeserver/511</url><assetId>FCH16057EZ4</assetId><calculatedStatus>operable</calculatedStatus><firmwareRev>2.0(4b)</firmwareRev><fru>false</fru><hardwareRev>0</hardwareRev><lastOperStatus>unknown</lastOperStatus><lastStatusChange>1970-01-01T00:00:00Z</lastStatusChange><localInstanceId>sys/chassis-1/blade-1</localInstanceId><localName></localName><mfgDate>1970-01-01T00:00:00Z</mfgDate><modelName>N20-B6625-1</modelName><operStatus>operable</operStatus><phyClass>module(9)</phyClass><serialNum>FCH16057EZ4</serialNum><softwareRev>2.0(4b)</softwareRev><vendor>Cisco Systems Inc</vendor><vendorType>0.0</vendorType><link href="https://vb701-viofm.vce.superna.net:8443/fm/computeserver/511/memoryunits" rel="children" type="application/xml"/><link href="https://vb701-viofm.vce.superna.net:8443/fm/computeserver/511/processorunits" rel="children" type="application/xml"/><link href="https://vb701-viofm.vce.superna.net:8443/fm/computeserver/511/iocards" rel="children" type="application/xml"/><availableMemory>43309</availableMemory><cmosVoltage>3.0</cmosVoltage><consumedPower>110.39951</consumedPower><dn>sys/chassis-1/blade-1</dn><id>79271</id><instanceId></instanceId><operPower>on</operPower><operability></operability><os xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="vmWareESX"><alias>org-root/ls-VCE-ESX-01</alias><dbId>510</dbId><description>VMware ESXi 5.1.0 build-838463</description><moId>000025b5-0001-0000-0000-00000000000f</moId><name>esxi</name><url></url><assetId></assetId><calculatedStatus>major</calculatedStatus><firmwareRev></firmwareRev><fru>false</fru><hardwareRev></hardwareRev><lastOperStatus>unknown</lastOperStatus><lastStatusChange>1970-01-01T00:00:00Z</lastStatusChange><localInstanceId></localInstanceId><localName></localName><mfgDate>1970-01-01T00:00:00Z</mfgDate><modelName>embeddedEsx</modelName><operStatus>major</operStatus><phyClass></phyClass><serialNum></serialNum><softwareRev></softwareRev><vendor>VMWare</vendor><vendorType>vmwESX</vendorType><credentials><community>unspecified</community><method>unspecified</method><username>unspecified</username></credentials><ipAddress>172.16.74.13</ipAddress><osName></osName><osType>vmnix-x86</osType><sysObjID>000025b5-0001-0000-0000-00000000000f</sysObjID><allocatedStorageMB>3934720</allocatedStorageMB><build>838463</build><emcpVersion>EMC PowerPath (c) Version 5.7 SP 0 (build 3), Built on: Jul 23 2012</emcpVersion><entityObjectId>host-1782</entityObjectId><freeStorageMB>1104227</freeStorageMB><overallCpuUsage>3</overallCpuUsage><VCID>B59FBF8D-1378-43B1-B78C-F4B5D4526A8B</VCID><version>5.1.0</version></os><perf>ok</perf><power></power><presence>not-supported</presence><revision>0</revision><rn></rn><storagecontroller><alias>sys/chassis-1/blade-1/board/storage-SAS-1</alias><dbId>509</dbId><description>storage controller</description><moId>sys/chassis-1/blade-1/board/storage-SAS-1</moId><name>sys/chassis-1/blade-1/board/storage-SAS-1</name><url>https://vb701-viofm.vce.superna.net:8443/fm/storagecontroller/509</url><assetId></assetId><calculatedStatus>unknown</calculatedStatus><firmwareRev>0</firmwareRev><fru>true</fru><hardwareRev>0</hardwareRev><lastOperStatus>unknown</lastOperStatus><lastStatusChange>1970-01-01T00:00:00Z</lastStatusChange><localInstanceId>sys/chassis-1/blade-1/board/storage-SAS-1</localInstanceId><localName></localName><mfgDate>1970-01-01T00:00:00Z</mfgDate><modelName>SAS1064E PCI-Express Fusion-MPT SAS</modelName><operStatus>unknown</operStatus><phyClass>module(9)</phyClass><serialNum></serialNum><softwareRev>0</softwareRev><vendor>LSI Logic   Symbios Logic</vendor><vendorType>0.0</vendorType><link href="https://vb701-viofm.vce.superna.net:8443/fm/storagecontroller/509/disks" rel="children" type="application/xml"/><cmosVoltage>0.0</cmosVoltage><controllerType></controllerType><dn></dn><id></id><instanceId></instanceId><operPower>unknown</operPower><operability></operability><perf>unknown</perf><power></power><presence>equipped</presence><revision>0</revision><rn></rn><thermal>unknown</thermal><voltage>0.0</voltage></storagecontroller><temperature>30.0</temperature><thermal>ok</thermal><totalMemory>98304</totalMemory><voltage>11.948</voltage></computeserver>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<computeserver>
+  <alias>sys/chassis-1/blade-1</alias>
+  <dbId>511</dbId>
+  <description/>
+  <moId>sys/chassis-1/blade-1</moId>
+  <name>sys/chassis-1/blade-1</name>
+  <url>https://vb701-viofm.vce.superna.net:8443/fm/computeserver/511</url>
+  <assetId>FCH16057EZ4</assetId>
+  <calculatedStatus>operable</calculatedStatus>
+  <firmwareRev>2.0(4b)</firmwareRev>
+  <fru>false</fru>
+  <hardwareRev>0</hardwareRev>
+  <lastOperStatus>unknown</lastOperStatus>
+  <lastStatusChange>1970-01-01T00:00:00Z</lastStatusChange>
+  <localInstanceId>sys/chassis-1/blade-1</localInstanceId>
+  <localName/>
+  <mfgDate>1970-01-01T00:00:00Z</mfgDate>
+  <modelName>N20-B6625-1</modelName>
+  <operStatus>operable</operStatus>
+  <phyClass>module(9)</phyClass>
+  <serialNum>FCH16057EZ4</serialNum>
+  <softwareRev>2.0(4b)</softwareRev>
+  <vendor>Cisco Systems Inc</vendor>
+  <vendorType>0.0</vendorType>
+  <link href="http://franshamk-pc.internal.superna.net/TouchProjects/vblocknav/fm/memoryunits.xml" rel="children" type="application/xml"/>
+  <link href="https://vb701-viofm.vce.superna.net:8443/fm/computeserver/511/processorunits" rel="children" type="application/xml"/>
+  <link href="https://vb701-viofm.vce.superna.net:8443/fm/computeserver/511/iocards" rel="children" type="application/xml"/>
+  <availableMemory>43309</availableMemory>
+  <cmosVoltage>3.0</cmosVoltage>
+  <consumedPower>110.39951</consumedPower>
+  <dn>sys/chassis-1/blade-1</dn>
+  <id>79271</id>
+  <instanceId/>
+  <operPower>on</operPower>
+  <operability/>
+  <os xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="vmWareESX">
+    <alias>org-root/ls-VCE-ESX-01</alias>
+    <dbId>510</dbId>
+    <description>VMware ESXi 5.1.0 build-838463</description>
+    <moId>000025b5-0001-0000-0000-00000000000f</moId>
+    <name>esxi</name>
+    <url/>
+    <assetId/>
+    <calculatedStatus>major</calculatedStatus>
+    <firmwareRev/>
+    <fru>false</fru>
+    <hardwareRev/>
+    <lastOperStatus>unknown</lastOperStatus>
+    <lastStatusChange>1970-01-01T00:00:00Z</lastStatusChange>
+    <localInstanceId/>
+    <localName/>
+    <mfgDate>1970-01-01T00:00:00Z</mfgDate>
+    <modelName>embeddedEsx</modelName>
+    <operStatus>major</operStatus>
+    <phyClass/>
+    <serialNum/>
+    <softwareRev/>
+    <vendor>VMWare</vendor>
+    <vendorType>vmwESX</vendorType>
+    <credentials>
+      <community>unspecified</community>
+      <method>unspecified</method>
+      <username>unspecified</username>
+    </credentials>
+    <ipAddress>172.16.74.13</ipAddress>
+    <osName/>
+    <osType>vmnix-x86</osType>
+    <sysObjID>000025b5-0001-0000-0000-00000000000f</sysObjID>
+    <allocatedStorageMB>3934720</allocatedStorageMB>
+    <build>838463</build>
+    <emcpVersion>EMC PowerPath (c) Version 5.7 SP 0 (build 3), Built on: Jul 23 2012</emcpVersion>
+    <entityObjectId>host-1782</entityObjectId>
+    <freeStorageMB>1104227</freeStorageMB>
+    <overallCpuUsage>3</overallCpuUsage>
+    <VCID>B59FBF8D-1378-43B1-B78C-F4B5D4526A8B</VCID>
+    <version>5.1.0</version>
+  </os>
+  <perf>ok</perf>
+  <power/>
+  <presence>not-supported</presence>
+  <revision>0</revision>
+  <rn/>
+  <storagecontroller>
+    <alias>sys/chassis-1/blade-1/board/storage-SAS-1</alias>
+    <dbId>509</dbId>
+    <description>storage controller</description>
+    <moId>sys/chassis-1/blade-1/board/storage-SAS-1</moId>
+    <name>sys/chassis-1/blade-1/board/storage-SAS-1</name>
+    <url>https://vb701-viofm.vce.superna.net:8443/fm/storagecontroller/509</url>
+    <assetId/>
+    <calculatedStatus>unknown</calculatedStatus>
+    <firmwareRev>0</firmwareRev>
+    <fru>true</fru>
+    <hardwareRev>0</hardwareRev>
+    <lastOperStatus>unknown</lastOperStatus>
+    <lastStatusChange>1970-01-01T00:00:00Z</lastStatusChange>
+    <localInstanceId>sys/chassis-1/blade-1/board/storage-SAS-1</localInstanceId>
+    <localName/>
+    <mfgDate>1970-01-01T00:00:00Z</mfgDate>
+    <modelName>SAS1064E PCI-Express Fusion-MPT SAS</modelName>
+    <operStatus>unknown</operStatus>
+    <phyClass>module(9)</phyClass>
+    <serialNum/>
+    <softwareRev>0</softwareRev>
+    <vendor>LSI Logic   Symbios Logic</vendor>
+    <vendorType>0.0</vendorType>
+    <link href="https://vb701-viofm.vce.superna.net:8443/fm/storagecontroller/509/disks" rel="children" type="application/xml"/>
+    <cmosVoltage>0.0</cmosVoltage>
+    <controllerType/>
+    <dn/>
+    <id/>
+    <instanceId/>
+    <operPower>unknown</operPower>
+    <operability/>
+    <perf>unknown</perf>
+    <power/>
+    <presence>equipped</presence>
+    <revision>0</revision>
+    <rn/>
+    <thermal>unknown</thermal>
+    <voltage>0.0</voltage>
+  </storagecontroller>
+  <temperature>30.0</temperature>
+  <thermal>ok</thermal>
+  <totalMemory>98304</totalMemory>
+  <voltage>11.948</voltage>
+</computeserver>

@@ -292,6 +292,8 @@
                     "var me = this;\r",
                     "\r",
                     "var onSuccess =  function(data) {\r",
+                    "    \r",
+                    "    me.retrievingData = false;\r",
                     "    var children = me.processDoc(data.responseText);  \r",
                     "\r",
                     "    if(!children || children.length == 0) {\r",
@@ -322,12 +324,25 @@
                     "\r",
                     "// need to add loadmask here\r",
                     "this.setLoading({xtype: 'loadmask', message: \"loading...\"});\r",
+                    "\r",
+                    "this.retrievingData = true;\r",
+                    "\r",
                     "Ext.Ajax.request({\r",
                     "    method: 'GET',\r",
                     "    url: record.get('link'),\r",
                     "    useDefaultXhrHeader: false,\r",
                     "    success: onSuccess\r",
-                    "});"
+                    "});\r",
+                    "\r",
+                    "var loadingError = function() {\r",
+                    "    if(me.retrievingData) {\r",
+                    "        alert(\"failed to retrieve: \" + url);\r",
+                    "        me.retrievingData = false;\r",
+                    "        me.setLoading(false);\r",
+                    "    }\r",
+                    "};\r",
+                    "\r",
+                    "Ext.defer(loadingError, 5000, this);"
                 ]
             },
             "designerId": "c20bc1e0-2108-492a-b27a-6422b88e8467"
@@ -455,7 +470,8 @@
                     "loading"
                 ],
                 "implHandler": [
-                    "this.getApplication().getController('NavSheetController').setLoading(loading);"
+                    "this.getApplication().getController('NavSheetController').setLoading(loading);\r",
+                    ""
                 ]
             },
             "designerId": "0ead36a7-4223-4603-b4a0-48b9f71c28df"
