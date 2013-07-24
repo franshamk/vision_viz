@@ -71,6 +71,19 @@
             "designerId": "e2b4334e-aa3d-4039-8698-2d75081d39b7"
         },
         {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainContainer",
+                "selector": "#main-container"
+            },
+            "designerId": "805105aa-4551-401e-b440-0e1b17799d2e"
+        },
+        {
             "type": "basicfunction",
             "reference": {
                 "name": "items",
@@ -80,18 +93,37 @@
             "userConfig": {
                 "fn": "redrawComponentView",
                 "designer|params": [
-                    "node"
+                    "node",
+                    "added"
                 ],
                 "implHandler": [
-                    "var json = this.getJSONFromTreeStore(node);\r",
                     "\r",
-                    "if(!this.currentRoot || this.currentRoot != json.id) {\r",
-                    "    this.currentRoot = json.id;\r",
-                    "    this.redrawSpaceTree(json);\r",
+                    "\r",
+                    "var json = this.getJSONFromTreeStore(node);\r",
+                    "var me = this;\r",
+                    "\r",
+                    "var doClick = function(id) {\r",
+                    "    me.setLoading(false);\r",
+                    "    me.currentTree.onClick(id);\r",
                     "}\r",
                     "\r",
-                    "//emulate a click on the selected node.\r",
-                    "this.currentTree.onClick(node.internalId);\r",
+                    "if(!this.currentTree){\r",
+                    "    this.currentRoot = json.id;\r",
+                    "    this.redrawSpaceTree(json);\r",
+                    "    doClick(node.internalId);\r",
+                    "}  else if (added) {\r",
+                    "    this.currentTree.addSubtree(json, 'animate', {  \r",
+                    "        hideLabels: false,  \r",
+                    "        onComplete: function() {  \r",
+                    "    \t\tdoClick(node.internalId);  \r",
+                    "            \r",
+                    "        }  \r",
+                    "    });\r",
+                    "} else {\r",
+                    "    doClick(node.internalId);\r",
+                    "}\r",
+                    "\r",
+                    "\r",
                     ""
                 ]
             },
@@ -113,7 +145,7 @@
                     "function convert(node) {\r",
                     "\r",
                     "    var data = {\r",
-                    "        id: node.internalId,\r",
+                    "        id: node.id,\r",
                     "        name: node.raw.text,\r",
                     "        data: {\r",
                     "            type: node.raw.type\r",
@@ -127,6 +159,8 @@
                     "    return data;\r",
                     "}\r",
                     "\r",
+                    "/*\r",
+                    "\r",
                     "//bubble up the tree to get the root node associated with this click.\r",
                     "var root;\r",
                     "\r",
@@ -137,7 +171,12 @@
                     "    }\r",
                     "});\r",
                     "\r",
-                    "return convert(root);"
+                    "return convert(root);\r",
+                    "\r",
+                    "*/\r",
+                    "\r",
+                    "return convert(targetNode);\r",
+                    ""
                 ]
             },
             "designerId": "5d9b40d8-fe88-4325-a7ec-78de847d0dc7"
@@ -210,7 +249,7 @@
                     "        enable:true,\r",
                     "        panning:true\r",
                     "    },\r",
-                    "    Tips: {  \r",
+                    "    /*Tips: {  \r",
                     "        enable: true,  \r",
                     "        type: 'HTML',  \r",
                     "        offsetX: 15,  \r",
@@ -227,7 +266,7 @@
                     "            var node2 = me.getNodeFromId(node.id);\r",
                     "            me.getController('ContextMenuController').showContextMenu(node2, e);\r",
                     "        }\r",
-                    "    },\r",
+                    "    },*/\r",
                     "\r",
                     "    //set node and edge styles\r",
                     "    //set overridable=true for styling individual\r",
@@ -263,9 +302,9 @@
                     "\r",
                     "\r",
                     "        label.innerHTML = '<div> <img style=\"margin-left:3px;width:48px;height:48px;vertical-align:middle\" src=\"' + iconPath + '\"/><span style=\"margin-left:5px;font-size:0.6em\">' + labelText + '</span></div>';\r",
-                    "        label.onclick = function(){\r",
+                    "        /*label.onclick = function(){\r",
                     "            st.onClick(node.id);\r",
-                    "        };\r",
+                    "        };*/\r",
                     "\r",
                     "        //set label styles\r",
                     "        var style = label.style;\r",
@@ -360,14 +399,15 @@
                 "fn": "doSelectionChange",
                 "designer|params": [
                     "id",
-                    "node"
+                    "node",
+                    "added"
                 ],
                 "implHandler": [
                     "var nd = node;\r",
                     "if(!nd) {\r",
                     "\tnd = this.getNodeFromId(id);\r",
                     "}\r",
-                    "this.redrawComponentView(nd);\r",
+                    "this.redrawComponentView(nd, added);\r",
                     ""
                 ]
             },
@@ -506,6 +546,25 @@
                 ]
             },
             "designerId": "f14b2555-c255-41c4-8667-a74af9e900fe"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "setLoading",
+                "designer|params": [
+                    "loading"
+                ],
+                "implHandler": [
+                    "var container = this.getMainContainer();\r",
+                    "container.setMasked(loading);"
+                ]
+            },
+            "designerId": "bd16995c-8756-40d9-9509-6cf650ac87d1"
         }
     ]
 }

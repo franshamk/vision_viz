@@ -6,7 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
-        "visionURL": "/TouchProjects/vblocknav",
+        "visionURL": "https://vb701-viofm.vce.superna.net:8443",
         "visionUser": "admin",
         "visionPass": "dangerous",
         "designer|userClassName": "VblockRESTController"
@@ -103,6 +103,7 @@
                     "\r",
                     "            var vb = Ext.create('MyApp.model.TreeModel', {\r",
                     "                text:'vblock ' + vb.serialNum['#text'],\r",
+                    "                //type: 'Vblock',\r",
                     "                children: [comp, network, storage, conn, rack]\r",
                     "            });\r",
                     "\r",
@@ -292,33 +293,35 @@
                     "\r",
                     "var onSuccess =  function(data) {\r",
                     "    var children = me.processDoc(data.responseText);  \r",
-                    "    \r",
+                    "\r",
                     "    if(!children || children.length == 0) {\r",
+                    "        me.setLoading(false);\r",
                     "        return;\r",
                     "    }\r",
-                    "    \r",
+                    "\r",
                     "    record.set('leaf', false);\r",
-                    "    \r",
+                    "\r",
                     "    children.forEach(function(child) {\r",
                     "        record.appendChild(child);\r",
                     "    });\r",
-                    "    \r",
-                    "    updateViews();\r",
+                    "\r",
+                    "    updateViews(true);\r",
                     "};\r",
                     "\r",
-                    "var updateViews = function () {\r",
+                    "var updateViews = function (added) {\r",
                     "    history.pushState();\r",
-                    "    me.getApplication().getController('NavSheetController').doSelectionChange(record.id, record);    \r",
+                    "    me.getApplication().getController('NavSheetController').doSelectionChange(record.id, record, added);    \r",
                     "    nestedlist.fireEvent('levelloaded', this, list, index, target, record, e);\r",
                     "};   \r",
                     "\r",
                     "\r",
                     "if(record.hasChildNodes()) {\r",
-                    "    updateViews();\r",
+                    "    updateViews(false);\r",
                     "    return;\r",
                     "} \r",
                     "\r",
                     "// need to add loadmask here\r",
+                    "this.setLoading({xtype: 'loadmask', message: \"loading...\"});\r",
                     "Ext.Ajax.request({\r",
                     "    method: 'GET',\r",
                     "    url: record.get('link'),\r",
@@ -383,6 +386,24 @@
                 ]
             },
             "designerId": "4ea76852-2fca-4fd5-a254-47bd4c640b82"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "setLoading",
+                "designer|params": [
+                    "loading"
+                ],
+                "implHandler": [
+                    "this.getApplication().getController('NavSheetController').setLoading(loading);"
+                ]
+            },
+            "designerId": "0ead36a7-4223-4603-b4a0-48b9f71c28df"
         }
     ]
 }

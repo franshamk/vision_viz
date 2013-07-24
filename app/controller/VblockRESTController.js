@@ -17,7 +17,7 @@ Ext.define('MyApp.controller.VblockRESTController', {
     extend: 'Ext.app.Controller',
 
     config: {
-        visionURL: '/TouchProjects/vblocknav',
+        visionURL: 'https://vb701-viofm.vce.superna.net:8443',
         visionUser: 'admin',
         visionPass: 'dangerous'
     },
@@ -82,6 +82,7 @@ Ext.define('MyApp.controller.VblockRESTController', {
 
                     var vb = Ext.create('MyApp.model.TreeModel', {
                         text:'vblock ' + vb.serialNum['#text'],
+                        //type: 'Vblock',
                         children: [comp, network, storage, conn, rack]
                     });
 
@@ -206,6 +207,7 @@ Ext.define('MyApp.controller.VblockRESTController', {
             var children = me.processDoc(data.responseText);  
 
             if(!children || children.length == 0) {
+                me.setLoading(false);
                 return;
             }
 
@@ -215,22 +217,23 @@ Ext.define('MyApp.controller.VblockRESTController', {
                 record.appendChild(child);
             });
 
-            updateViews();
+            updateViews(true);
         };
 
-        var updateViews = function () {
+        var updateViews = function (added) {
             history.pushState();
-            me.getApplication().getController('NavSheetController').doSelectionChange(record.id, record);    
+            me.getApplication().getController('NavSheetController').doSelectionChange(record.id, record, added);    
             nestedlist.fireEvent('levelloaded', this, list, index, target, record, e);
         };   
 
 
         if(record.hasChildNodes()) {
-            updateViews();
+            updateViews(false);
             return;
         } 
 
         // need to add loadmask here
+        this.setLoading({xtype: 'loadmask', message: "loading..."});
         Ext.Ajax.request({
             method: 'GET',
             url: record.get('link'),
@@ -278,6 +281,10 @@ Ext.define('MyApp.controller.VblockRESTController', {
         }
 
         return models;
+    },
+
+    setLoading: function(loading) {
+        this.getApplication().getController('NavSheetController').setLoading(loading);
     }
 
 });

@@ -20,7 +20,8 @@ Ext.define('MyApp.controller.NavSheetController', {
         refs: {
             navSheet: '#vblock-nav-sheet',
             componentView: '#spacetree-container',
-            vblockList: '#vblock-list'
+            vblockList: '#vblock-list',
+            mainContainer: '#main-container'
         },
 
         control: {
@@ -47,16 +48,34 @@ Ext.define('MyApp.controller.NavSheetController', {
         return false;
     },
 
-    redrawComponentView: function(node) {
-        var json = this.getJSONFromTreeStore(node);
+    redrawComponentView: function(node, added) {
 
-        if(!this.currentRoot || this.currentRoot != json.id) {
-            this.currentRoot = json.id;
-            this.redrawSpaceTree(json);
+
+        var json = this.getJSONFromTreeStore(node);
+        var me = this;
+
+        var doClick = function(id) {
+            me.setLoading(false);
+            me.currentTree.onClick(id);
         }
 
-        //emulate a click on the selected node.
-        this.currentTree.onClick(node.internalId);
+        if(!this.currentTree){
+            this.currentRoot = json.id;
+            this.redrawSpaceTree(json);
+            doClick(node.internalId);
+        }  else if (added) {
+            this.currentTree.addSubtree(json, 'animate', {  
+                hideLabels: false,  
+                onComplete: function() {  
+                    doClick(node.internalId);  
+
+                }  
+            });
+        } else {
+            doClick(node.internalId);
+        }
+
+
 
     },
 
@@ -64,7 +83,7 @@ Ext.define('MyApp.controller.NavSheetController', {
         function convert(node) {
 
             var data = {
-                id: node.internalId,
+                id: node.id,
                 name: node.raw.text,
                 data: {
                     type: node.raw.type
@@ -78,6 +97,8 @@ Ext.define('MyApp.controller.NavSheetController', {
             return data;
         }
 
+        /*
+
         //bubble up the tree to get the root node associated with this click.
         var root;
 
@@ -89,6 +110,11 @@ Ext.define('MyApp.controller.NavSheetController', {
         });
 
         return convert(root);
+
+        */
+
+        return convert(targetNode);
+
     },
 
     redrawSpaceTree: function(json) {
@@ -147,24 +173,24 @@ Ext.define('MyApp.controller.NavSheetController', {
                 enable:true,
                 panning:true
             },
-            Tips: {  
-                enable: true,  
-                type: 'HTML',  
-                offsetX: 15,  
-                offsetY: 15,  
-                onShow: function(tip, node) { 
-                    tip.innerHTML = '<div style="background-color:#d0d0d0;padding:3px">' + node.name + '</div>';  
-                }  
+            /*Tips: {  
+            enable: true,  
+            type: 'HTML',  
+            offsetX: 15,  
+            offsetY: 15,  
+            onShow: function(tip, node) { 
+            tip.innerHTML = '<div style="background-color:#d0d0d0;padding:3px">' + node.name + '</div>';  
+            }  
             },
             Events: {
-                enable: true,  
-                onRightClick: function(node, eventInfo, e) { 
-                    st.onClick(node.id);
-                    me.setSelectedNode(node.id);
-                    var node2 = me.getNodeFromId(node.id);
-                    me.getController('ContextMenuController').showContextMenu(node2, e);
-                }
-            },
+            enable: true,  
+            onRightClick: function(node, eventInfo, e) { 
+            st.onClick(node.id);
+            me.setSelectedNode(node.id);
+            var node2 = me.getNodeFromId(node.id);
+            me.getController('ContextMenuController').showContextMenu(node2, e);
+            }
+            },*/
 
             //set node and edge styles
             //set overridable=true for styling individual
@@ -200,9 +226,9 @@ Ext.define('MyApp.controller.NavSheetController', {
 
 
                 label.innerHTML = '<div> <img style="margin-left:3px;width:48px;height:48px;vertical-align:middle" src="' + iconPath + '"/><span style="margin-left:5px;font-size:0.6em">' + labelText + '</span></div>';
-                label.onclick = function(){
-                    st.onClick(node.id);
-                };
+                /*label.onclick = function(){
+                st.onClick(node.id);
+                };*/
 
                 //set label styles
                 var style = label.style;
@@ -270,12 +296,12 @@ Ext.define('MyApp.controller.NavSheetController', {
         return store.getNodeById(id);
     },
 
-    doSelectionChange: function(id, node) {
+    doSelectionChange: function(id, node, added) {
         var nd = node;
         if(!nd) {
             nd = this.getNodeFromId(id);
         }
-        this.redrawComponentView(nd);
+        this.redrawComponentView(nd, added);
 
     },
 
@@ -354,6 +380,11 @@ Ext.define('MyApp.controller.NavSheetController', {
                 }
             }
         }, false);
+    },
+
+    setLoading: function(loading) {
+        var container = this.getMainContainer();
+        container.setMasked(loading);
     }
 
 });
