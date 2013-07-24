@@ -297,9 +297,14 @@ Ext.define('MyApp.controller.VblockRESTController', {
 
             if(i == '#text') {
                 continue;
-            }
+            }        
 
             var elements = topcontainer[i];
+
+            if (i == 'link') {
+                addLink(elements);
+                continue;
+            }
 
             for(var j in elements) { // computesystem[]  
 
@@ -308,6 +313,11 @@ Ext.define('MyApp.controller.VblockRESTController', {
                 }     
 
                 var element = elements[j]; // computesystem // might be an array
+
+                if (j == 'link') {
+                    addLink(elements);
+                    continue;
+                }
 
                 if (Ext.isArray(element)) {
                     for(var k in element) {

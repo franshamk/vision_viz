@@ -6,7 +6,7 @@
     <description>Cisco UCS Chassis 1</description>
     <moId>sys/chassis-1</moId>
     <name>sys/chassis-1</name>
-    <url>https://vb701-viofm.vce.superna.net:8443/fm/computechassis/480</url>
+    <url>http://franshamk-pc.internal.superna.net/TouchProjects/vblocknav/fm/chassis1.xml</url>
     <assetId>FOX1612GEG5</assetId>
     <calculatedStatus>operable</calculatedStatus>
     <firmwareRev>0</firmwareRev>
