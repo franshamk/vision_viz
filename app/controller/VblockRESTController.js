@@ -260,7 +260,12 @@ Ext.define('MyApp.controller.VblockRESTController', {
             }
 
             for (var child in element.link) {
-                var url = element.link[child]['@attributes'].href;
+                var url = "";
+                if(child == '@attributes') {
+                    url = element.link[child].href;
+                } else {
+                    url = element.link[child]['@attributes'].href;
+                }
                 var name = url.split('/').pop(); 
                 addModel(name, url);
             }
