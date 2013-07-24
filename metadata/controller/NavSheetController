@@ -359,11 +359,15 @@
             "userConfig": {
                 "fn": "doSelectionChange",
                 "designer|params": [
-                    "id"
+                    "id",
+                    "node"
                 ],
                 "implHandler": [
-                    "var node = this.getNodeFromId(id);\r",
-                    "this.redrawComponentView(node);\r",
+                    "var nd = node;\r",
+                    "if(!nd) {\r",
+                    "\tnd = this.getNodeFromId(id);\r",
+                    "}\r",
+                    "this.redrawComponentView(nd);\r",
                     ""
                 ]
             },
@@ -452,7 +456,7 @@
                     "    src: 'resources/images/vblock-large.png'\r",
                     "});\r",
                     "\r",
-                    "    "
+                    ""
                 ]
             },
             "designerId": "ca29446e-20f0-48e3-9c5f-a33628b2e39b"

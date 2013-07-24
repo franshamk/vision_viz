@@ -270,9 +270,12 @@ Ext.define('MyApp.controller.NavSheetController', {
         return store.getNodeById(id);
     },
 
-    doSelectionChange: function(id) {
-        var node = this.getNodeFromId(id);
-        this.redrawComponentView(node);
+    doSelectionChange: function(id, node) {
+        var nd = node;
+        if(!nd) {
+            nd = this.getNodeFromId(id);
+        }
+        this.redrawComponentView(nd);
 
     },
 

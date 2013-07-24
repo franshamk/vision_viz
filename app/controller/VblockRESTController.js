@@ -17,7 +17,7 @@ Ext.define('MyApp.controller.VblockRESTController', {
     extend: 'Ext.app.Controller',
 
     config: {
-        visionURL: 'https://fm-sim-nimsoft.internal.superna.net:8443',
+        visionURL: '/TouchProjects/vblocknav',
         visionUser: 'admin',
         visionPass: 'dangerous'
     },
@@ -209,17 +209,18 @@ Ext.define('MyApp.controller.VblockRESTController', {
                 return;
             }
 
+            record.set('leaf', false);
+
             children.forEach(function(child) {
                 record.appendChild(child);
             });
+
             updateViews();
         };
 
         var updateViews = function () {
-            alert('updating views');
             history.pushState();
-            alert(record.id);
-            me.getApplication().getController('NavSheetController').doSelectionChange(record.id);    
+            me.getApplication().getController('NavSheetController').doSelectionChange(record.id, record);    
             nestedlist.fireEvent('levelloaded', this, list, index, target, record, e);
         };   
 
@@ -228,8 +229,6 @@ Ext.define('MyApp.controller.VblockRESTController', {
             updateViews();
             return;
         } 
-
-        alert(record.get('link'));
 
         // need to add loadmask here
         Ext.Ajax.request({
