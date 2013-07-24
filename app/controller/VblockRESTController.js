@@ -249,32 +249,72 @@ Ext.define('MyApp.controller.VblockRESTController', {
         var topcontainer = this.xmlToJson(xmlDoc);  // computesystems
         console.log(topcontainer);
 
-        var models = []
+        var models = [];
+
+        function addLink(element) {
+
+            if(!element.link) {
+                console.log("no links in element");
+                console.log(element);
+                return;
+            }
+
+            for (var child in element.link) {
+                var url = element.link[child]['@attributes'].href;
+                var name = url.split('/').pop(); 
+                addModel(name, url);
+            }
+        }
+
+        function addChild(type, element) {
+            var name = getText(element.name);
+            var alias = getText(element.alias);
+            var text = type;
+            if(name) {
+                text = name;
+            } else if (alias) {
+                text = alias;
+            }
+            var url = getText(element.url);
+            addModel(text, url);
+        }
+
+        function addModel(name, link) {
+            var model = Ext.create('MyApp.model.TreeModel', {
+                text: name,
+                link: link
+            });
+            models.push(model);
+        }
+
+        function getText(element) {
+            if(element && '#text' in element) {
+                return element['#text'];
+            }
+        }
 
         for(var i in topcontainer) {
+
+            if(i == '#text') {
+                continue;
+            }
+
             var elements = topcontainer[i];
 
-            for(var j in elements) { // computesystem[]   
+            for(var j in elements) { // computesystem[]  
 
-                var element = elements[j]; // computesystem  THIS IS THE MODEL. 
-
-                // append the links as children to this model. 
-
-                if(!element.link) {
-                    console.log("no links in element");
-                    console.log(element);
+                if(j == '#text') {
                     continue;
-                }
+                }     
 
-                for (var child in element.link) {
-                    var url = element.link[child]['@attributes'].href;
-                    var name = url.split('/').pop();
+                var element = elements[j]; // computesystem // might be an array
 
-                    var model = Ext.create('MyApp.model.TreeModel', {
-                        text: name,
-                        link: url
-                    });
-                    models.push(model);
+                if (Ext.isArray(element)) {
+                    for(var k in element) {
+                        addChild(j, element[k]);
+                    }            
+                } else {            
+                    addLink(element);
                 }
             }
 

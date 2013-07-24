@@ -1,1 +1,93 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?><computechasses><computechassis><alias></alias><dbId>25</dbId><description>Chassis at Rack Location 1</description><moId>srv1/chassis1</moId><name>rack-unit-1</name><url>https://fm-sim-nimsoft.internal.superna.net:8443/fm/computechassis/25</url><assetId></assetId><calculatedStatus>notApplicable</calculatedStatus><firmwareRev></firmwareRev><fru>false</fru><hardwareRev></hardwareRev><lastOperStatus>unknown</lastOperStatus><lastStatusChange>1970-01-01T00:00:00Z</lastStatusChange><localInstanceId></localInstanceId><localName>srv1/rack-unit-1</localName><mfgDate>1970-01-01T00:00:00Z</mfgDate><modelName>Cisco</modelName><operStatus>notApplicable</operStatus><phyClass>chassis(3)</phyClass><serialNum></serialNum><softwareRev></softwareRev><vendor></vendor><vendorType>0.0</vendorType><configuration>not specified</configuration><dn>not specified</dn><location><number>1</number><position>1</position><units>1</units></location><rackLocation><number>1</number><position>1</position><units>1</units></rackLocation><rn>not specified</rn><tag>unspecified</tag><link href="https://fm-sim-nimsoft.internal.superna.net:8443/fm/computechassis/25/psus" rel="children" type="application/xml"/><link href="https://fm-sim-nimsoft.internal.superna.net:8443/fm/computechassis/25/fans" rel="children" type="application/xml"/><link href="https://fm-sim-nimsoft.internal.superna.net:8443/fm/computechassis/25/fanbays" rel="children" type="application/xml"/><link href="http://franshamk-pc.internal.superna.net/TouchProjects/vblocknav/fm/computeservers.xml" rel="children" type="application/xml"/><link href="https://fm-sim-nimsoft.internal.superna.net:8443/fm/computechassis/25/iomodules" rel="children" type="application/xml"/><inputPower>0.0</inputPower></computechassis></computechasses>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<computechasses>
+  <computechassis>
+    <alias>UC6A</alias>
+    <dbId>480</dbId>
+    <description>Cisco UCS Chassis 1</description>
+    <moId>sys/chassis-1</moId>
+    <name>sys/chassis-1</name>
+    <url>https://vb701-viofm.vce.superna.net:8443/fm/computechassis/480</url>
+    <assetId>FOX1612GEG5</assetId>
+    <calculatedStatus>operable</calculatedStatus>
+    <firmwareRev>0</firmwareRev>
+    <fru>false</fru>
+    <hardwareRev>0</hardwareRev>
+    <lastOperStatus>unknown</lastOperStatus>
+    <lastStatusChange>1970-01-01T00:00:00Z</lastStatusChange>
+    <localInstanceId>sys/chassis-1</localInstanceId>
+    <localName>sys/chassis-1</localName>
+    <mfgDate>1970-01-01T00:00:00Z</mfgDate>
+    <modelName>N20-C6508</modelName>
+    <operStatus>operable</operStatus>
+    <phyClass>chassis(3)</phyClass>
+    <serialNum>FOX1612GEG5</serialNum>
+    <softwareRev>0</softwareRev>
+    <vendor>Cisco Systems Inc</vendor>
+    <vendorType>0.0</vendorType>
+    <configuration>ok</configuration>
+    <dn>sys/chassis-1</dn>
+    <location>
+      <number>0</number>
+      <position>0</position>
+      <units>0</units>
+    </location>
+    <rackLocation>
+      <number>0</number>
+      <position>0</position>
+      <units>0</units>
+    </rackLocation>
+    <rn/>
+    <tag>unspecified</tag>
+    <link href="https://vb701-viofm.vce.superna.net:8443/fm/computechassis/480/psus" rel="children" type="application/xml"/>
+    <link href="https://vb701-viofm.vce.superna.net:8443/fm/computechassis/480/fans" rel="children" type="application/xml"/>
+    <link href="https://vb701-viofm.vce.superna.net:8443/fm/computechassis/480/fanbays" rel="children" type="application/xml"/>
+    <link href="https://vb701-viofm.vce.superna.net:8443/fm/computechassis/480/computeservers" rel="children" type="application/xml"/>
+    <link href="https://vb701-viofm.vce.superna.net:8443/fm/computechassis/480/iomodules" rel="children" type="application/xml"/>
+    <inputPower>1036.0</inputPower>
+  </computechassis>
+  <computechassis>
+    <alias>UC6B</alias>
+    <dbId>614</dbId>
+    <description>Cisco UCS Chassis 2</description>
+    <moId>sys/chassis-2</moId>
+    <name>sys/chassis-2</name>
+    <url>https://vb701-viofm.vce.superna.net:8443/fm/computechassis/614</url>
+    <assetId>FOX1612G0V1</assetId>
+    <calculatedStatus>operable</calculatedStatus>
+    <firmwareRev>0</firmwareRev>
+    <fru>false</fru>
+    <hardwareRev>0</hardwareRev>
+    <lastOperStatus>unknown</lastOperStatus>
+    <lastStatusChange>1970-01-01T00:00:00Z</lastStatusChange>
+    <localInstanceId>sys/chassis-2</localInstanceId>
+    <localName>sys/chassis-2</localName>
+    <mfgDate>1970-01-01T00:00:00Z</mfgDate>
+    <modelName>N20-C6508</modelName>
+    <operStatus>operable</operStatus>
+    <phyClass>chassis(3)</phyClass>
+    <serialNum>FOX1612G0V1</serialNum>
+    <softwareRev>0</softwareRev>
+    <vendor>Cisco Systems Inc</vendor>
+    <vendorType>0.0</vendorType>
+    <configuration>ok</configuration>
+    <dn>sys/chassis-2</dn>
+    <location>
+      <number>0</number>
+      <position>0</position>
+      <units>0</units>
+    </location>
+    <rackLocation>
+      <number>0</number>
+      <position>0</position>
+      <units>0</units>
+    </rackLocation>
+    <rn/>
+    <tag>unspecified</tag>
+    <link href="https://vb701-viofm.vce.superna.net:8443/fm/computechassis/614/psus" rel="children" type="application/xml"/>
+    <link href="https://vb701-viofm.vce.superna.net:8443/fm/computechassis/614/fans" rel="children" type="application/xml"/>
+    <link href="https://vb701-viofm.vce.superna.net:8443/fm/computechassis/614/fanbays" rel="children" type="application/xml"/>
+    <link href="https://vb701-viofm.vce.superna.net:8443/fm/computechassis/614/computeservers" rel="children" type="application/xml"/>
+    <link href="https://vb701-viofm.vce.superna.net:8443/fm/computechassis/614/iomodules" rel="children" type="application/xml"/>
+    <inputPower>1064.0</inputPower>
+  </computechassis>
+</computechasses>
