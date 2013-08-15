@@ -20,10 +20,10 @@
             "userConfig": {
                 "fn": "onButtonTap",
                 "implHandler": [
-                    "//history.pushState();\r",
-                    "//this.getNavSheet().show();\r",
+                    "history.pushState();\r",
+                    "this.getNavSheet().show();\r",
                     "\r",
-                    "this.getApplication().getController('VblockRESTController').getBaseResource(\"/fm/vblocks.xml\");"
+                    "//this.getApplication().getController('VblockRESTController').getBaseResource(\"/fm/vblocks.xml\");"
                 ],
                 "name": "tap",
                 "designer|targetType": "Ext.Button",

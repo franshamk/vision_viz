@@ -37,7 +37,6 @@ Ext.define('MyApp.view.DynamicList', {
                 },
                 {
                     xtype: 'image',
-                    flex: 1,
                     height: 40,
                     width: 256,
                     src: 'resources/images/vblock-nav-logo.png'

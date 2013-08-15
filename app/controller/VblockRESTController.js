@@ -208,7 +208,7 @@ Ext.define('MyApp.controller.VblockRESTController', {
             me.retrievingData = false;
             var children = me.processDoc(data.responseText);
         
-            if(!children || children.length == 0) {
+            if(!children || children.length === 0) {
                 me.setLoading(false);
                 return;
             }
@@ -220,6 +220,7 @@ Ext.define('MyApp.controller.VblockRESTController', {
             });
         
             updateViews(true);
+            me.setLoading(false);
         };
         
         var updateViews = function (added) {
@@ -243,7 +244,8 @@ Ext.define('MyApp.controller.VblockRESTController', {
             method: 'GET',
             url: record.get('link'),
             useDefaultXhrHeader: false,
-            success: onSuccess
+            success: onSuccess,
+            failure: loadingError()
         });
         
         var loadingError = function() {

@@ -35,10 +35,10 @@ Ext.define('MyApp.controller.NavSheetController', {
     },
 
     onButtonTap: function(button, e, eOpts) {
-        //history.pushState();
-        //this.getNavSheet().show();
+        history.pushState();
+        this.getNavSheet().show();
         
-        this.getApplication().getController('VblockRESTController').getBaseResource("/fm/vblocks.xml");
+        //this.getApplication().getController('VblockRESTController').getBaseResource("/fm/vblocks.xml");
     },
 
     onNestedlistBack: function(nestedlist, node, lastActiveList, detailCardActive, eOpts) {

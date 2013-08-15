@@ -27,34 +27,6 @@ Ext.define('MyApp.view.MainContainer', {
         },
         items: [
             {
-                xtype: 'sheet',
-                hidden: true,
-                id: 'vblock-nav-sheet',
-                left: 0,
-                right: 100,
-                hideOnMaskTap: true,
-                layout: {
-                    type: 'vbox'
-                },
-                enter: 'left',
-                exit: 'left',
-                stretchY: true,
-                items: [
-                    {
-                        xtype: 'nestedlist',
-                        flex: 1,
-                        store: 'MyJsonTreeStore'
-                    },
-                    {
-                        xtype: 'list',
-                        flex: 1,
-                        itemTpl: [
-                            '<div>List Item {string}</div>'
-                        ]
-                    }
-                ]
-            },
-            {
                 xtype: 'container',
                 itemId: 'portrait',
                 layout: {
@@ -88,6 +60,34 @@ Ext.define('MyApp.view.MainContainer', {
                 layout: {
                     type: 'hbox'
                 }
+            },
+            {
+                xtype: 'sheet',
+                hidden: true,
+                id: 'vblock-nav-sheet',
+                left: 0,
+                right: 100,
+                hideOnMaskTap: true,
+                layout: {
+                    type: 'vbox'
+                },
+                enter: 'left',
+                exit: 'left',
+                stretchY: true,
+                items: [
+                    {
+                        xtype: 'nestedlist',
+                        flex: 1,
+                        store: 'MyJsonTreeStore'
+                    },
+                    {
+                        xtype: 'list',
+                        flex: 1,
+                        itemTpl: [
+                            '<div>List Item {string}</div>'
+                        ]
+                    }
+                ]
             }
         ]
     }
