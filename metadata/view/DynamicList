@@ -11,7 +11,8 @@
         "designer|userClassName": "DynamicList",
         "designer|userAlias": "mynestedlist15",
         "store": "VblockTreeStore",
-        "title": "VBlock Nav"
+        "title": null,
+        "updateTitleText": false
     },
     "designerId": "ad9ac025-8001-422b-a2f0-5b49d4e7d21a",
     "cn": [
@@ -24,10 +25,10 @@
             "codeClass": null,
             "userConfig": {
                 "container|align": null,
-                "container|pack": "end",
+                "container|pack": "center",
                 "docked": "top",
                 "itemId": "header-bar",
-                "ui": null
+                "title": null
             },
             "designerId": "69bd03d3-39d1-4e13-9cb9-557c6c09e372",
             "cn": [
@@ -38,7 +39,34 @@
                         "type": "array"
                     },
                     "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": 1
+                    },
                     "designerId": "b54b5a14-df9e-4e9c-9280-058920fd0dff"
+                },
+                {
+                    "type": "Ext.Img",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": 1,
+                        "height": 40,
+                        "width": 256,
+                        "src": "resources/images/vblock-nav-logo.png"
+                    },
+                    "designerId": "1bc289bf-a41f-4276-8076-0af549171ea9"
+                },
+                {
+                    "type": "Ext.Spacer",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "designerId": "6c1eec71-ef45-4d1e-9525-e05f3a70f080"
                 },
                 {
                     "type": "Ext.Button",
@@ -49,7 +77,6 @@
                     "codeClass": null,
                     "userConfig": {
                         "itemId": "show-nav-sheet-button",
-                        "ui": "plain",
                         "width": 45,
                         "iconCls": "more",
                         "text": null

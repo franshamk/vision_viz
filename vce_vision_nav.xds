@@ -1,0 +1,60 @@
+{
+    "name": "vce_vision_nav",
+    "settings": {
+        "spacesToIndent": 4,
+        "lineEnding": "CRLF",
+        "genTimestamps": false,
+        "cacheBust": false,
+        "urlPrefix": "http://localhost/TouchProjects/vce_vision_nav",
+        "exportPath": "C:/inetpub/wwwroot/TouchProjects/nav",
+        "buildShouldOverwriteIndex": true,
+        "sdkPath": "C:/Program Files (x86)/SenchaTouch2.2.1/touch-2.2.1",
+        "canvasControls": {
+            "viewportSize": {
+                "name": "iPhone",
+                "builtIn": true,
+                "height": 480,
+                "width": 320
+            },
+            "viewportOrientation": "portrait"
+        },
+        "generateArchitectVersion": true
+    },
+    "xdsVersion": "3.0.0",
+    "xdsBuild": 1130,
+    "schemaVersion": 1,
+    "upgradeVersion": 210000000503,
+    "framework": "touch22",
+    "viewOrderMap": {
+        "view": [
+            "39000966-fd31-42ac-b30c-4b0dff611f7e",
+            "ad9ac025-8001-422b-a2f0-5b49d4e7d21a"
+        ],
+        "store": [
+            "5027d7dc-ef60-43e1-9a11-d968522b2d1a",
+            "5f7e8925-33e9-456d-9e0e-e52a67dbcb3a",
+            "9bae67c8-7e24-4a33-9a6d-77a2cddafebe"
+        ],
+        "controller": [
+            "43550407-8160-4482-8532-53707620be0c",
+            "5ce08c6e-493a-4b00-996f-2d520acf139d",
+            "45e13f6d-91c7-4914-ac82-4fd329a935b7"
+        ],
+        "model": [
+            "a1903918-b670-4d1e-bc79-8307f35be62e",
+            "4c13b272-2391-4369-a01a-facae69d11fc",
+            "f68bada4-a281-489d-bcef-1d9b6f5d7457",
+            "fafb3f6d-d514-4483-86cc-484a9c74bb6c"
+        ],
+        "resource": [
+            "93b7c494-095d-4ef5-8fec-f886ece5b4a4",
+            "9916fc56-8f7d-4e45-b29a-e1957c44b97f",
+            "fab945d8-1178-4325-b131-043d3a1332ba",
+            "d2db7d62-11ea-4ff8-9b0b-b90d61a85a38",
+            "6e2e434b-7bfa-4bf1-b6a4-516b7ac87ca7"
+        ],
+        "app": [
+            "application"
+        ]
+    }
+}

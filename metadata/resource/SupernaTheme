@@ -1,0 +1,137 @@
+{
+    "type": "defaultthemeresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "SupernaTheme"
+    },
+    "designerId": "6e2e434b-7bfa-4bf1-b6a4-516b7ac87ca7",
+    "storage": {
+        "varData": {
+            "Ext.tab.Panel": {
+                "globalVars": [],
+                "uis": []
+            },
+            "Ext.picker.Picker": {
+                "globalVars": [],
+                "uis": []
+            },
+            "Ext.form.Panel": {
+                "globalVars": [],
+                "uis": []
+            },
+            "Ext.form.FieldSet": {
+                "globalVars": [],
+                "uis": []
+            },
+            "Ext.field.TextArea": {
+                "globalVars": [],
+                "uis": []
+            },
+            "Ext.field.Spinner": {
+                "globalVars": [],
+                "uis": []
+            },
+            "Ext.field.Slider": {
+                "globalVars": [],
+                "uis": []
+            },
+            "Ext.field.Field": {
+                "globalVars": [],
+                "uis": []
+            },
+            "Ext.dataview.List": {
+                "globalVars": [],
+                "uis": []
+            },
+            "Ext.dataview.IndexBar": {
+                "globalVars": [],
+                "uis": []
+            },
+            "Ext.carousel.Carousel": {
+                "globalVars": [],
+                "uis": []
+            },
+            "Ext.Toolbar": {
+                "globalVars": [],
+                "uis": []
+            },
+            "Ext.Sheet": {
+                "globalVars": [],
+                "uis": []
+            },
+            "Ext.Panel": {
+                "globalVars": [],
+                "uis": []
+            },
+            "Ext.Class": {
+                "globalVars": [
+                    {
+                        "name": "base-color",
+                        "enabled": true,
+                        "value": "rgba(65,62,62,1)",
+                        "invalid": false
+                    },
+                    {
+                        "name": "base-gradient",
+                        "enabled": true,
+                        "value": "matte",
+                        "invalid": false
+                    }
+                ],
+                "uis": []
+            },
+            "Ext.Button": {
+                "globalVars": [
+                    {
+                        "name": "button-radius",
+                        "enabled": true,
+                        "value": "0em",
+                        "invalid": false
+                    },
+                    {
+                        "name": "button-stroke-weight",
+                        "enabled": true,
+                        "value": "5px",
+                        "invalid": false
+                    },
+                    {
+                        "name": "toolbar-icon-size",
+                        "enabled": false,
+                        "value": "0.5em",
+                        "invalid": false
+                    }
+                ],
+                "uis": []
+            },
+            "Ext.MessageBox": {
+                "globalVars": [],
+                "uis": []
+            },
+            "Ext.chart.AbstractChart": {
+                "globalVars": [],
+                "uis": []
+            },
+            "Ext.Container": {
+                "globalVars": [],
+                "uis": []
+            },
+            "Ext.dataview.NestedList": {
+                "globalVars": [],
+                "uis": []
+            },
+            "Ext.Spacer": {
+                "globalVars": [],
+                "uis": []
+            },
+            "Ext.Img": {
+                "globalVars": [],
+                "uis": []
+            }
+        },
+        "nameIndex": 1
+    }
+}

@@ -6,7 +6,8 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userClassName": "Library"
+        "designer|userClassName": "Library",
+        "theme": "SupernaTheme"
     },
     "designerId": "93b7c494-095d-4ef5-8fec-f886ece5b4a4"
 }
