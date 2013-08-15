@@ -205,6 +205,8 @@ Ext.define('MyApp.controller.VblockRESTController', {
         
         var onSuccess =  function(data) {
         
+            alert(data.responseText);
+        
             me.retrievingData = false;
             var children = me.processDoc(data.responseText);
         
@@ -225,7 +227,7 @@ Ext.define('MyApp.controller.VblockRESTController', {
         
         var updateViews = function (added) {
             history.pushState();
-            me.getApplication().getController('NavSheetController').doSelectionChange(record.id, record, added);
+            //me.getApplication().getController('NavSheetController').doSelectionChange(record.id, record, added);
             nestedlist.fireEvent('levelloaded', this, list, index, target, record, e);
         };
         

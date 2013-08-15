@@ -22,6 +22,7 @@ Ext.define('MyApp.view.DynamicList', {
         id: 'vblock-list',
         store: 'VblockTreeStore',
         updateTitleText: false,
+        useTitleAsBackText: false,
         toolbar: {
             xtype: 'toolbar',
             docked: 'top',

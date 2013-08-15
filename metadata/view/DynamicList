@@ -12,7 +12,8 @@
         "designer|userAlias": "mynestedlist15",
         "store": "VblockTreeStore",
         "title": null,
-        "updateTitleText": false
+        "updateTitleText": false,
+        "useTitleAsBackText": false
     },
     "designerId": "ad9ac025-8001-422b-a2f0-5b49d4e7d21a",
     "cn": [
